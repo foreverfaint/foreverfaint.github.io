@@ -1,0 +1,17 @@
+highlight:
+  anchorLineNos: false
+  codeFences: true
+  guessSyntax: false
+  hl_Lines: ""
+  lineAnchors: ""
+  lineNoStart: 1
+  lineNos: false
+  lineNumbersInTable: true
+  noClasses: true
+  style: monokai
+  tabWidth: 4
+
+tableOfContents:
+  endLevel: 3
+  ordered: false
+  startLevel: 2

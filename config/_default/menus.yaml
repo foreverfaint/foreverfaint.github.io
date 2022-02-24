@@ -1,0 +1,10 @@
+main:
+    - name: "Blog"
+      url: "/"
+      weight: 1
+    - name: "Abort"
+      url: "/about"
+      weight: 2
+    - name: "Tags"
+      url: "/tags"
+      weight: 3

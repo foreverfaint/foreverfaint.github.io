@@ -1,6 +1,6 @@
 # myhugo
 
-My Hugo based blog.
+My Hugo based blog. If you are not familiar to Hugo yet, please read [an excellent tutorial](https://www.ii.com/themeless-gitless-intro-hugo).
 
 ## Installation
 
@@ -58,10 +58,16 @@ $ git submodule update --rebase --remote
 
 ## Content
 
+### Create New Post
+
 ```bash
 $ hugo new posts/my-first-post.md
-${root}/content/posts/build_tensorrt_docker_image.md created
+./content/posts/build_tensorrt_docker_image.md created
+```
 
+### Preview
+
+```bash
 $ hugo server -D
 
                    | EN  
@@ -83,4 +89,10 @@ Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
+```
+
+### Publish
+
+```bash
+$ hugo --cleanDestinationDir --minify
 ```

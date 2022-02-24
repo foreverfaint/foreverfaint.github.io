@@ -1,0 +1,40 @@
+baseURL: "/"
+
+languageCode: "zh-Hant"
+
+title: "Dev66"
+
+# Copyright notice. This is displayer in the footer.
+copyright: "&copy; Copyright notice"
+
+# Google Analytics API key.
+googleAnalytics: "Your Google Analytics tracking id"
+
+disqusShortname: "dev66"
+
+# enable get info from git commits, such as file modification time.
+# so we don't have to manually update it.
+enableGitInfo: true
+
+enableRobotsTXT: true
+
+theme: "hugo_theme_pickles"
+
+enableEmoji: true
+
+# https://gohugo.io/content-management/urls/#canonicalization
+canonifyURLs: false
+
+# For a CJK summary splitting
+hasCJKLanguage: true
+
+taxonomies:
+    # Enable category
+    category: categories
+    # Enable tag
+    tag: tags
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

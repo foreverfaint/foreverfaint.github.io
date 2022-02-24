@@ -1,0 +1,37 @@
+paginate: 10
+
+# Hide the date on posts
+# hideDate: true
+
+# Hide last modified date on posts
+# hideModifiedDate: true
+
+# Hide the word count on posts and in the posts list
+# hideWordCount: true
+
+# Hide the reading time on posts and in the posts list
+# hideReadingTime: true
+
+# custom_css: ["/css/custom.css"]
+
+# Social accounts. Link to these accounts are displayed in the header and
+github: "foreverfaint"
+# Disqus shortname
+disqus: "dev66"
+author: "Dev66"
+
+authorwebsite: "dev66.xyz"
+
+avatar: "/images/avatar.jpg"
+
+contact: "mailto://foreverfaint@gmail.com"
+
+#   bio = "Your short bio"
+# Short subtitle/tagline. This is displayed in the header.
+
+subtitle: "i like old-fashioned"
+
+# Logo image. This is displayed ogp image.
+logo: "/path/to/logo"
+
+favicon: "/path/to/favicon"
