@@ -17,7 +17,7 @@ paginate: 10
 # Social accounts. Link to these accounts are displayed in the header and
 github: "foreverfaint"
 # Disqus shortname
-disqus: "dev66"
+disqus: "foreverfaint-github-io"
 author: "Dev66"
 
 authorwebsite: "dev66.xyz"
