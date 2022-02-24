@@ -1,0 +1,24 @@
+[submodule "themes/arabica"]
+	path = themes/arabica
+	url = https://github.com/nirocfz/arabica
+[submodule "themes/hugo-kiera"]
+	path = themes/hugo-kiera
+	url = https://github.com/funkydan2/hugo-kiera.git
+[submodule "themes/hugo-theme-pixyll"]
+	path = themes/hugo-theme-pixyll
+	url = git@github.com:azmelanar/hugo-theme-pixyll.git
+[submodule "themes/hugo_theme_pickles"]
+	path = themes/hugo_theme_pickles
+	url = https://github.com/mismith0227/hugo_theme_pickles
+[submodule "themes/paperback"]
+	path = themes/paperback
+	url = https://github.com/dashdashzako/paperback
+[submodule "themes/vienna"]
+	path = themes/vienna
+	url = https://github.com/keichi/vienna
+[submodule "themes/hugo-theme-minos"]
+	path = themes/hugo-theme-minos
+	url = https://github.com/carsonip/hugo-theme-minos
+[submodule "themes/hugo-rocinante"]
+	path = themes/hugo-rocinante
+	url = https://github.com/mavidser/hugo-rocinante.git
