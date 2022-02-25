@@ -2,15 +2,15 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>TensorRT容器镜像</title>
-<meta property="og:title" content="TensorRT容器镜像">
-<meta name=twitter:title content="TensorRT容器镜像">
+<title>如何算一篇好的阐述并解决问题的博文？</title>
+<meta property="og:title" content="如何算一篇好的阐述并解决问题的博文？">
+<meta name=twitter:title content="如何算一篇好的阐述并解决问题的博文？">
 <meta name=description content="i like old-fashioned">
 <meta property="og:description" content="i like old-fashioned">
 <meta name=twitter:description content="i like old-fashioned">
 <meta name=author content="Dev66">
 <meta property="og:site_name" content="Dev66">
-<meta property="og:url" content="https://foreverfaint.github.io/posts/build-tensorrt-docker-image/">
+<meta property="og:url" content="https://foreverfaint.github.io/posts/first-try-on-flutter/">
 <meta name=twitter:card content="summary">
 <meta property="og:type" content="article">
 <meta name=generator content="Hugo 0.92.2">
@@ -30,152 +30,132 @@ i like old-fashioned
 <main id=main class=l-main>
 <article class=p-article>
 <header>
-<h1>TensorRT容器镜像</h1>
+<h1>如何算一篇好的阐述并解决问题的博文？</h1>
 <div>
 <div class=c-meta>
 Posted on
-<time datetime=2022-02-24T17:12:22+08:00>
-Feb 24, 2022
+<time datetime=2020-02-10T00:02:00+08:00>
+Feb 10, 2020
 </time>
 |
-2027 words
+2647 words
 |
-~5 mins
+~6 mins
 </div>
 </div>
-<a href=https://foreverfaint.github.io/tags/docker class=c-tag>Docker</a>
-<a href=https://foreverfaint.github.io/tags/tensorrt class=c-tag>TensorRT</a>
+<a href=https://foreverfaint.github.io/tags/android class=c-tag>Android</a>
+<a href=https://foreverfaint.github.io/tags/flutter class=c-tag>Flutter</a>
 </div>
 </header>
 <section id=js-article class=p-article__body>
-<p>首先，NVIDIA NGC为每个TensorRT的版本提供了<a href=https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/rel_22-01.html>docker镜像</a>。具体的镜像使用方法参见<a href=https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorrt>NGC TensorRT页面</a> 。简单说，开发者基于官方镜像build自己的镜像。</p>
-<h2 id=使用官方镜像>使用官方镜像</h2>
-<p>例如运行<strong>22.01</strong>版本的tensorrt镜像：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run --gpus all --rm nvcr.io/nvidia/tensorrt:22.01-py3 nvidia-smi
+<p>最近在学习Flutter开发Android应用。新手搭环境难免遇到各种坑。一般都是边搜索边尝试，最终解决问题。因此“搜索”到别人的解法至关重要。我发现网上有大量的解法，但很多时候，要么“解法”缺斤短两，关键步骤缺失；要么知其然不知所以然，瞎猫碰死耗子解决问题，让读者无法借鉴。到底如何才算一篇合格的issue resolution博文，怎样才能帮到他人？</p>
+<p>网上技术博客大致分为几类：</p>
+<ol>
+<li>一阶技术分享。所谓“一阶”即阐述具体知识和技术。比如： 上一篇<a href=https://foreverfaint.github.io/posts/nohup/>nohup</a>讲<em>linux</em>命令的使用，还有<a href=https://foreverfaint.github.io/posts/scrapy-cookie/>在Scrapy中使用cookie</a>则分析<em>scrapy</em>框架的使用技巧。</li>
+<li>二阶技术分享。所谓“二阶”即在“一阶”具体技术之上发挥创造。一般讲设计/模式/架构，讲思想，也可以讲如何把技术用到一个有趣的场景。比如：<a href=https://foreverfaint.github.io/posts/streaming-pipeline-in-python-1/>Streaming Pipeline in Python 1</a> 这篇讲的并不是<em>python</em>怎么用，甚至不是讲<em>expression generator</em>是什么，而是试图讲如何在<em>python</em>中实现一个流水线模式；还有我最喜欢的博主<strong>Eric Lippert</strong>的文章<a href=https://ericlippert.com/2019/01/22/an-interesting-list-structure/>An interesting list structure, part 1</a>用c#来讲有趣的数据结构。</li>
+<li>三阶分享。到了三阶，与其说是技术分享，不如说是形而上的思维交流，比如：技术管理，技术商业化，技术人生，软技能，以及职业发展等等。例如：<strong>Joe</strong>的文章<a href=https://www.joelonsoftware.com/2001/12/25/getting-things-done-when-youre-only-a-grunt/>Getting Things Done When You’re Only a Grunt</a>咋凭一己之力在团队里搞EE，讲的软技能（当然不排除大神带货之嫌，毕竟自家工具恰好解决他文章里说的那些问题）；再举Eric的文章<a href=https://ericlippert.com/2019/12/30/work-and-success/>Work and success</a>成功的技术人生到底需不需要996状态工作（文章原话“working long hours”）？</li>
+<li>最后还有一类，和一阶分享类似，但不是介绍某个知识，技术和工具使用。而是在研发过程中，遇到了一些令人困惑的问题，经过长时间的搜索和尝试，最终解决。写成博客作为记录，同时分享给其他有可能遇到同样问题的伙伴。这种类型的分享和github的issues很像。</li>
+</ol>
+<p>第2和3类博客有一定门槛，能写也愿意花精力去写的人少。最多的是1和4。程序员的日常就是和各种千奇百怪的“坑”做“斗争”，故第4类博客格外多，但质量良莠不齐，原因想必有几条：</p>
+<ol>
+<li>大部分博主仅是做个记录给自己看，无所谓别人能不能看懂。</li>
+<li>“不识庐山真面目，只缘身在此山中”，很多博主虽然想让别人看懂，但是博主和读者理解的角度不同。有时候博主觉得已经写得很清楚了，但是读者看来缺少了一些关键细节，依旧不能理解。</li>
+<li>这类文章门槛低，基本属于中小学说明文范畴。大部分水平有限的同仁热衷产出此类文章，文笔和逻辑欠佳，难以保证质量。</li>
+<li>装逼。觉得写太细不是“专家”所为，专家应该只给思想定方向。这些简单的执行步骤，太low，写起来也麻烦。大家都自行搜索解决就好了。</li>
+</ol>
+<p>这篇文章想借flutter环境搭建中遇到的问题，讲讲怎样才算一篇合格的issue resolution博客。</p>
+<p>在Android Studio上安装flutter和dart开发应用。按<a href=https://flutter.dev/docs/get-started/install/linux>官方文档</a>安装完毕后运行</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ flutter doctor
 
-<span style=color:#f92672>=====================</span>
-<span style=color:#f92672>==</span> NVIDIA TensorRT <span style=color:#f92672>==</span>
-<span style=color:#f92672>=====================</span>
+<span style=color:#f92672>[</span>-<span style=color:#f92672>]</span> Android toolchain - develop <span style=color:#66d9ef>for</span> Android devices
+✗ Android license status unknown.
+• Try re-installing or updating your Android SDK,
+    visit https://flutter.dev/setup/#android-setup <span style=color:#66d9ef>for</span> detailed instructions.
+</code></pre></div><p>出现了一个**Android license status unknown.**的错误。搜索后，找到一篇<a href=https://blog.csdn.net/weixin_41319450/article/details/90264627>关于升级Android SDK的文章</a>，按文章所说许可证未知的情况下，应该升级sdkmanager，故执行</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ /home/Android/Sdk/tools/bin/sdkmanager --update
 
-NVIDIA Release 22.01 <span style=color:#f92672>(</span>build 30856447<span style=color:#f92672>)</span>
-NVIDIA TensorRT Version 8.2.2
-Copyright <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> 2016-2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
-
-Container image Copyright <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> 2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
-
-https://developer.nvidia.com/tensorrt
-
-Various files include modifications <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> NVIDIA CORPORATION &amp; AFFILIATES.  All rights reserved.
-
-This container image and its contents are governed by the NVIDIA Deep Learning Container License.
-By pulling and using the container, you accept the terms and conditions of this license:
-https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
-
-To install Python sample dependencies, run /opt/tensorrt/python/python_setup.sh
-
-To install the open-source samples corresponding to this TensorRT release version
-run /opt/tensorrt/install_opensource.sh.  To build the open source parsers,
-plugins, and samples <span style=color:#66d9ef>for</span> current top-of-tree on master or a different branch,
-run /opt/tensorrt/install_opensource.sh -b &lt;branch&gt;
-See https://github.com/NVIDIA/TensorRT <span style=color:#66d9ef>for</span> more information.
-
-Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2022</span>       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|<span style=color:#f92672>===============================</span>+<span style=color:#f92672>======================</span>+<span style=color:#f92672>======================</span>|
-|   <span style=color:#ae81ff>0</span>  Tesla T4            Off  | 00000000:02:00.0 Off |                    <span style=color:#ae81ff>0</span> |
-| N/A   51C    P0    29W /  70W |   1861MiB / 15360MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|<span style=color:#f92672>=============================================================================</span>|
-|    <span style=color:#ae81ff>0</span>   N/A  N/A      <span style=color:#ae81ff>1671</span>      G                                      14MiB |
-|    <span style=color:#ae81ff>0</span>   N/A  N/A    <span style=color:#ae81ff>624052</span>      G                                      14MiB |
-|    <span style=color:#ae81ff>0</span>   N/A  N/A   <span style=color:#ae81ff>1306910</span>      C                                    1829MiB |
-+-----------------------------------------------------------------------------+
-</code></pre></div><blockquote>
-<p><strong>22.01</strong>为镜像版本号，而非tensorrt版本号。</p>
-</blockquote>
-<p>查看不同版本镜像中安装了哪些软件，可查看<a href=https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/rel_22-01.html>TensorRT发布页面</a>。<strong>22.01</strong>安装了：</p>
+Exception in thread <span style=color:#e6db74>&#34;main&#34;</span> java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
+    at com.android.repository.api.SchemaModule$SchemaModuleVersion.&lt;init&gt;<span style=color:#f92672>(</span>SchemaModule.java:156<span style=color:#f92672>)</span>
+    at com.android.repository.api.SchemaModule.&lt;init&gt;<span style=color:#f92672>(</span>SchemaModule.java:75<span style=color:#f92672>)</span>
+    at com.android.sdklib.repository.AndroidSdkHandler.&lt;clinit&gt;<span style=color:#f92672>(</span>AndroidSdkHandler.java:81<span style=color:#f92672>)</span>
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main<span style=color:#f92672>(</span>SdkManagerCli.java:73<span style=color:#f92672>)</span>
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main<span style=color:#f92672>(</span>SdkManagerCli.java:48<span style=color:#f92672>)</span>
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
+    at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass<span style=color:#f92672>(</span>BuiltinClassLoader.java:581<span style=color:#f92672>)</span>
+    at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass<span style=color:#f92672>(</span>ClassLoaders.java:178<span style=color:#f92672>)</span>
+    at java.base/java.lang.ClassLoader.loadClass<span style=color:#f92672>(</span>ClassLoader.java:521<span style=color:#f92672>)</span>
+    ... <span style=color:#ae81ff>5</span> more
+</code></pre></div><p>执行失败。用关键词<em>sdkmanager &ndash;update java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema</em>再一通搜索，发现很多讨论这个问题的博文，比如：</p>
 <ul>
-<li>Ubuntu 20.04, Note: Container image 22.01-py3 contains Python 3.8.</li>
-<li>NVIDIA CUDA 11.6.0</li>
-<li><strong>TensorRT 8.2.2</strong></li>
-<li>cuBLAS 11.8.1.74</li>
-<li>NVIDIA cuDNN 8.3.2</li>
-<li>NVIDIA NCCL 2.11.4 (optimized for NVLink™ ), Note: Although NCCL is packaged in the container, it does not affect TensorRT nor inferencing in any way.</li>
-<li>rdma-core 36.0</li>
-<li>NVIDIA HPC-X 2.10</li>
-<li>OpenMPI 4.1.2rc4+</li>
-<li>OpenUCX 1.12.0</li>
-<li>GDRCopy 2.3</li>
-<li>Nsight Systems 2021.5.2.53</li>
-</ul>
-<h2 id=构建自定义镜像>构建自定义镜像</h2>
-<p>但如果是某些特殊原因，比如：</p>
+<li>
+<p><a href=https://blog.csdn.net/u011339184/article/details/103787959>关于flutter sdk安装时候的xxxxx\SDK\tools\bin\sdkmanager &ndash;update快捷解法</a>和我遇到的问题细节略有不同（报错不一致），但基本可以辅助我得出一个结论：问题是<em>sdkmanager依赖的</em>java环境导致的。回头来看这篇文章本身，就属于“茶壶里煮饺子，有嘴倒不出”类型。博主应该是解决了自己的问题，但写出的文章囫囵吞枣，让其他新手无从下手。</p>
+</li>
+<li>
+<p><a href=https://blog.csdn.net/wwq614003946wwq/article/details/90673338>运行sdkmanager &ndash;update报错java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema</a>也说出了要点。可难道让大家重新装jdk吗？</p>
+</li>
+<li>
+<p><a href=https://www.jianshu.com/p/8f5238575601>sdkmanager &ndash;list 报错</a>的博主知其然不知其所以然。机器上想必已经装了java.se.ee啥的，所以加上一段配置项就work了，但为什么work估计还是一脸懵逼。</p>
+</li>
+<li>
+<p><a href=https://blog.csdn.net/u011339184/article/details/103787959>JDK11 使用 sdkmanager &ndash;update 报错解决</a> 是所有中文文章中，最靠谱的一篇：</p>
 <ul>
-<li>需要一个更小的镜像（NVIDIA的官方镜像在6+GB），例如：不想安装<code>Nsight Systems</code>到镜像中</li>
-<li>需要一个官方没有提供的版本组合，例如：<code>ubuntu 18.04 + python 3.6 + cuda 11.6 + tensorrt 7.1</code></li>
+<li>明确说明原因：JDK版本问题。环境中装了JDK 11，有些jar包已经剥离出去了。这些jar包在JDK 8中是存在的。博主完全理解了问题的本质原因，并清晰的阐述；</li>
+<li>降级到JDK 8太愚蠢。博主急人之所急，知道重装到JDK 8对于大部分人来说不是一个好的选择。同时给出了新方案：将缺少的几个jar包下载下来，并把这些jar包的位置添加到CLASSPATH这个环境变量中。这样sdkmanager就能使用这几个依赖包了。注意到博主明确给出了哪些jar包是缺失的（很赞）；</li>
+<li>遗憾的是博主可能假设所有人都是java高手，知道该去哪里找这些jar包，故没有给出jar包下载路径。全文离“完美”只差一步。</li>
 </ul>
-<p>可以从<code>ubuntu</code>的容器镜像，或者从NVIDIA的<code>cuda</code>容器镜像开始构建自己的镜像。从<code>ubuntu</code>开始构建，最终镜像大概在4GB左右。从<code>cuda</code>开始，最终镜像会在4.6GB左右。如果没有特殊的需求，建议从<code>cuda</code>开始，调试精力和构建一次的时间都会节省一些。以下以<code>cuda</code>为例，说明过程。</p>
-<h2 id=基础镜像选择>基础镜像选择</h2>
-<p>NVIDIA将<code>cuda</code>镜像发布到了<a href=https://hub.docker.com/r/nvidia/cuda><code>docker hub</code></a>上，先根据对操作系统类型和<code>cuda</code>版本选择基础镜像。每一类版本镜像又分为三种：</p>
-<ul>
-<li><code>base</code>，仅包含<code>cuda runtime</code>（cudart）。</li>
-<li><code>runtime</code>，基于<code>base</code>，还包含<a href=https://developer.nvidia.com/gpu-accelerated-libraries>CUDA math libraries</a>、<a href=https://developer.nvidia.com/nccl>NCCL</a>，和<a href=https://developer.nvidia.com/cudnn>cuDNN</a>。</li>
-<li><code>devel</code>，基于<code>runtime</code>，还包含开发库和开发工具。如果需要使用镜像基于<code>cuda</code>做进一步编译和开发，应该使用该镜像。</li>
+</li>
+<li>
+<p>最后<a href=https://stackoverflow.com/questions/53076422/getting-android-sdkmanager-to-run-with-java-11>Stack Overflow的答案</a>给出了正确的方案，并给出了下载地址。而且值得注意的是，国外的开发者喜欢用脚本和代码说话，甚至连“建子目录以及-O参数输出到子目录”这些细节都不放过。细到极致，跟着做不会出错。唯一的瑕疵：下载地址用到了 <code>http://central.maven.org</code>。http协议貌似已经不可访问，需要全部替换为 <code>https://repo.maven.apache.org</code>。</p>
+</li>
 </ul>
-<p>我们以<a href=https://hub.docker.com/layers/nvidia/cuda/11.6.0-runtime-ubuntu20.04><code>nvidia/cuda:11.6.0-runtime-ubuntu20.04</code></a>作为基础镜像。</p>
-<h2 id=创建dockerfile>创建Dockerfile</h2>
-<h3 id=进行ubuntu配置>进行Ubuntu配置</h3>
-<p>使用<code>dockerfile:1</code>的语法，可以按多stage方法进行构建。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#75715e># syntax=docker/dockerfile:1</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> nvidia/cuda:11.6.0-runtime-ubuntu20.04 AS Base</span><span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p><code>./sources-focal.list</code>是一个自定义的apt源。比如使用国内（中国大陆）的apt源替换默认的海外apt源，可以大大提供安装速度和稳定性。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>COPY</span> ./sources-focal.list /etc/apt/sources.list<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>设置<code>DEBIAN_FRONTEND=noninteractive</code>防止安装过程中，出现<code>prompt</code>提示进行某项配置（例如：时区和键盘layout）。不过貌似从<code>cuda</code>镜像开始安装，这些配置已经进行过设置，所以可以跳过这些步骤。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>ENV</span> DEBIAN_FRONTEND<span style=color:#f92672>=</span>noninteractive
+<p>梳理一下终极解决方案。在Ubuntu 18.04 + Android Studio 3.5.1 + OpenJDK 11的组合上验证通过。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd /home/Android/tools/bin
 
-<span style=color:#66d9ef>RUN</span> apt-get -y update <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    apt-get install -y --no-install-recommends tzdata keyboard-configuration software-properties-common<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><h3 id=安装python>安装Python</h3>
-<p>基础镜像中并没有安装<code>docker</code>，所以第二步可以选择python版本进行安装。本文以<code>python 3.8</code>为例：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install curl wget autoconf automake libtool python3.8 python3.8-dev python3.8-distutils ffmpeg <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    update-alternatives --install /usr/bin/python python /usr/bin/python3.8 <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    python3 get-pip.py <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    pip install -U pip setuptools -i https://mirrors.aliyun.com/pypi/simple <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple  <span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>其中：</p>
-<ul>
-<li><code>update-alternatives</code>将<code>python</code>和<code>python3</code>命令指向<code>python3.8</code></li>
-<li><code>python3 get-pip.py</code>安装的<code>pip</code>，会放到<code>/usr/local/bin/pip</code>这个位置，而不是<code>/usr/bin/pip</code></li>
-<li><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple</code>设置一个国内（中国大陆）更快的<code>pip</code>源</li>
-</ul>
-<h3 id=安装tensorrt>安装TensorRT</h3>
-<p>安装过程参考<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing>Nvidia TensorRT Installation</a>。特别是在<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-debian>4.1. Debian Installation</a>一节有一句重要的提示，重要中的重要我进行了加粗。我们正是在用包含了<code>cuda</code>和<code>cudnn</code>的基础镜像安装！如果没看到这句话，各种下载和配置尝试会耽误不少时间 😄</p>
-<blockquote>
-<p>For advanced users who are already familiar with TensorRT and want to get their application running quickly, are <strong>using an NVIDIA CUDA container with cuDNN included</strong>, or want to setup automation, follow the network repo installation instructions (see Using <a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#maclearn-net-repo-install>The NVIDIA CUDA Network Repo For Debian Installation</a>).</p>
-</blockquote>
-<p>在<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#maclearn-net-repo-install>4.1.1 Using The NVIDIA CUDA Network Repo For Debian Installation</a>这一节，同样最重要的一句：</p>
-<blockquote>
-<p>Note: If you are using a CUDA container with cuDNN included, then the NVIDIA CUDA network repository will already be set up and you can skip step 1.</p>
-</blockquote>
-<p>这一节一共3步，如上第1步可以忽略了，而第3步只有在安装<em>非最新版本TensorRT</em>的时候才用得上。因此我们只需要关注第2步。我们的镜像是作为运行时镜像使用，不用于开发，所以只安装 <em>For only running TensorRT C++ applications</em> 和 <em>For running TensorRT Python applications</em></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install libnvinfer8 libnvonnxparsers8 libnvparsers8 libnvinfer-plugin8 <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    pip install numpy <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    apt-get -y install python3-libnvinfer<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>以上即为自定义TensorRT镜像的制作过程。</p>
+$ mkdir jaxb_lib
+
+$ wget https://repo.maven.apache.org/maven2/javax/activation/activation/1.1.1/activation-1.1.1.jar -O jaxb_lib/activation.jar
+
+$ wget https://repo.maven.apache.org/maven2/javax/xml/jaxb-impl/2.1/jaxb-impl-2.1.jar -O jaxb_lib/jaxb-impl.jar
+
+$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-xjc/2.3.2/jaxb-xjc-2.3.2.jar -O jaxb_lib/jaxb-xjc.jar
+
+$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar -O jaxb_lib/jaxb-core.jar
+
+$ wget hhttps://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-jxc/2.3.2/jaxb-jxc-2.3.2.jar -O jaxb_lib/jaxb-jxc.jar
+
+$ wget https://repo.maven.apache.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar -O jaxb_lib/jaxb-api.jar
+
+$ vim sdkmanager
+</code></pre></div><p>最后一步中，向脚本中增加几个jar路径到CLASSPATH环境变量</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>CLASSPATH<span style=color:#f92672>=</span>$CLASSPATH:$APP_HOME/bin/jaxb_lib/activation.jar:$APP_HOME/bin/jaxb_lib/jaxb-impl.jar:$APP_HOME/bin/jaxb_lib/jaxb-xjc.jar:$APP_HOME/bin/jaxb_lib/jaxb-core.jar:$APP_HOME/bin/jaxb_lib/jaxb-jxc.jar:$APP_HOME/bin/jaxb_lib/jaxb-api.jar
+</code></pre></div><p>再试一下</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ /home/Android/Sdk/tools/bin/sdkmanager --update
+
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 <span style=color:#f92672>(</span>file:/home/hao/Android/Sdk/tools/bin/jaxb_lib/jaxb-impl.jar<span style=color:#f92672>)</span> to method java.lang.ClassLoader.defineClass<span style=color:#f92672>(</span>java.lang.String,byte<span style=color:#f92672>[]</span>,int,int<span style=color:#f92672>)</span>
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1
+WARNING: Use --illegal-access<span style=color:#f92672>=</span>warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Warning: File /home/hao/.android/repositories.cfg could not be loaded.          
+<span style=color:#f92672>[=======================================]</span> 100% Computing updates...             
+------------------------------------------------------------    
+
+$ flutter doctor
+
+Doctor summary <span style=color:#f92672>(</span>to see all details, run flutter doctor -v<span style=color:#f92672>)</span>:
+<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Flutter <span style=color:#f92672>(</span>Channel beta, v1.14.6, on Linux, locale en_US.UTF-8<span style=color:#f92672>)</span>
+<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Android toolchain - develop <span style=color:#66d9ef>for</span> Android devices <span style=color:#f92672>(</span>Android SDK version 29.0.2<span style=color:#f92672>)</span>
+<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Android Studio <span style=color:#f92672>(</span>version 3.5<span style=color:#f92672>)</span>
+<span style=color:#f92672>[</span>!<span style=color:#f92672>]</span> IntelliJ IDEA Community Edition <span style=color:#f92672>(</span>version 2019.2<span style=color:#f92672>)</span>
+    ✗ Flutter plugin not installed; this adds Flutter specific functionality.
+    ✗ Dart plugin not installed; this adds Dart specific functionality.
+<span style=color:#f92672>[</span>!<span style=color:#f92672>]</span> VS Code <span style=color:#f92672>(</span>version 1.41.1<span style=color:#f92672>)</span>
+    ✗ Flutter extension not installed; install from
+    https://marketplace.visualstudio.com/items?itemName<span style=color:#f92672>=</span>Dart-Code.flutter
+<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Connected device <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> available<span style=color:#f92672>)</span>
+
+! Doctor found issues in <span style=color:#ae81ff>2</span> categories.
+</code></pre></div><p>和Android Studio相关的flutter配置全部正常了！</p>
 </section>
 <footer>
 <div id=disqus_thread></div>
@@ -184,9 +164,10 @@ Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2
 <nav class="p-pagination c-pagination">
 <div class=c-pagination__ctrl>
 <div class=c-pagination__newer>
+<a href=https://foreverfaint.github.io/posts/360-feedback/>Newer</a>
 </div>
 <div class=c-pagination__older>
-<a href=https://foreverfaint.github.io/posts/360-feedback/>Older</a>
+<a href=https://foreverfaint.github.io/posts/nohup/>Older</a>
 </div>
 </div>
 </nav>
