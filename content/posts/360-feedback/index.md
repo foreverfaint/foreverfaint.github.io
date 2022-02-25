@@ -2,9 +2,9 @@
 title: 360环评
 date: 2021-1-17T15:04:00+08:00
 categories: 
-    - management
+    - Management
 tags:
-    - management
+    - Management
 ---
 
 这是我司第二年做360环评。第一次环评时，发生了被反馈者拿着反馈结果找提供反馈的同事吵架的事请。这事儿隔了一年我才知道，感慨颇深：
