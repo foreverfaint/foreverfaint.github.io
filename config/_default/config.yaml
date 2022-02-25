@@ -33,8 +33,3 @@ taxonomies:
     category: categories
     # Enable tag
     tag: tags
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
