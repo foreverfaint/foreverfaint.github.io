@@ -25,3 +25,4 @@
 [submodule "themes/hugo-theme-swift"]
 	path = themes/hugo-theme-swift
 	url = git@github.com:foreverfaint/hugo-theme-swift.git
+	branch = main

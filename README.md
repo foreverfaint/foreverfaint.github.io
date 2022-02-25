@@ -44,6 +44,18 @@ $ echo theme = \"hugo_theme_pickles\" >> config.toml
 $ git submodule update --rebase --remote
 ```
 
+### Delete a theme submodule
+
+Please read [How do I remove a submodule?](https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule)
+
+```bash
+$ git rm themes/hugo_theme_pickles
+
+$ rm -rf .git/modules/themes/hugo_theme_pickles
+
+$ git config --remove-section submodule.themes/hugo_theme_pickles
+```
+
 ### Some themes I like
 
 |Theme|hugo-theme|github|
