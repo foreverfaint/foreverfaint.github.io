@@ -40,6 +40,12 @@ $ echo theme = \"hugo_theme_pickles\" >> config.toml
 
 ### Init themes after cloning repository
 
+```bash
+$ git submodule init
+
+$ git submodule update
+```
+
 ### Update themes
 
 ```bash
@@ -52,7 +58,6 @@ Please read [How do I remove a submodule?](https://stackoverflow.com/questions/1
 
 ```bash
 $ git rm themes/hugo-rocinante
-
 
 $ rm -rf .git/modules/themes/hugo-rocinante
 
