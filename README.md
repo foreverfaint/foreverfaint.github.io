@@ -38,6 +38,8 @@ $ cd ..
 $ echo theme = \"hugo_theme_pickles\" >> config.toml
 ```
 
+### Init themes after cloning repository
+
 ### Update themes
 
 ```bash
@@ -49,22 +51,21 @@ $ git submodule update --rebase --remote
 Please read [How do I remove a submodule?](https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule)
 
 ```bash
-$ git rm themes/hugo_theme_pickles
+$ git rm themes/hugo-rocinante
 
-$ rm -rf .git/modules/themes/hugo_theme_pickles
 
-$ git config --remove-section submodule.themes/hugo_theme_pickles
+$ rm -rf .git/modules/themes/hugo-rocinante
+
+$ git config --remove-section submodule.themes/hugo-rocinante
 ```
 
 ### Some themes I like
 
 |Theme|hugo-theme|github|
 |:---|:---|:-----|
-|vienna|https://themes.gohugo.io/themes/vienna/|https://github.com/keichi/vienna|
 |hugo-kiera|https://themes.gohugo.io/themes/hugo-kiera/#demo|https://github.com/funkydan2/hugo-kiera|
 |hugo_theme_pickles|https://themes.gohugo.io/themes/hugo_theme_pickles/|https://github.com/mismith0227/hugo_theme_pickles|
 |hugo-theme-pixyll|https://themes.gohugo.io/themes/hugo-theme-pixyll/|https://github.com/azmelanar/hugo-theme-pixyll|
-|hugo-theme-minos|https://themes.gohugo.io/themes/hugo-theme-minos/|https://github.com/carsonip/hugo-theme-minos|
 
 ## Content
 
