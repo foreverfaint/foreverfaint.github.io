@@ -60,13 +60,11 @@ $ git config --remove-section submodule.themes/hugo_theme_pickles
 
 |Theme|hugo-theme|github|
 |:---|:---|:-----|
-|arabica|https://themes.gohugo.io/themes/arabica/|https://github.com/nirocfz/arabica|
 |vienna|https://themes.gohugo.io/themes/vienna/|https://github.com/keichi/vienna|
 |hugo-kiera|https://themes.gohugo.io/themes/hugo-kiera/#demo|https://github.com/funkydan2/hugo-kiera|
 |hugo_theme_pickles|https://themes.gohugo.io/themes/hugo_theme_pickles/|https://github.com/mismith0227/hugo_theme_pickles|
 |hugo-theme-pixyll|https://themes.gohugo.io/themes/hugo-theme-pixyll/|https://github.com/azmelanar/hugo-theme-pixyll|
 |hugo-theme-minos|https://themes.gohugo.io/themes/hugo-theme-minos/|https://github.com/carsonip/hugo-theme-minos|
-|paperback|https://themes.gohugo.io/themes/paperback/|https://github.com/dashdashzako/paperback|
 
 ## Content
 
