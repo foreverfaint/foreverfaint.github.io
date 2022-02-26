@@ -411,9 +411,7 @@ Completed Process: 24826, Thread: Thread-31
 <p>如果使用<code>apply_async</code>放入很多线程或者进程等待Pool有资源处理，有可能出现OOM情况。所以当预期会有超大量等待执行的任务时，建议不要调用async，而是使用apply或者map，执行固定数量的任务；该彼此任务结束后，再循环执行下一个批次。</p>
 </section>
 <footer>
-<div id=disqus_thread></div>
-<script>var disqus_shortname='foreverfaint-github-io';(function(){var a=document,b=a.createElement('script');b.src='https://'+disqus_shortname+'.disqus.com/embed.js',b.setAttribute('data-timestamp',+new Date),(a.head||a.body).appendChild(b)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<script src=https://utteranc.es/client.js repo=foreverfaint/foreverfaint.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
 <nav class="p-pagination c-pagination">
 <div class=c-pagination__ctrl>
 <div class=c-pagination__newer>
