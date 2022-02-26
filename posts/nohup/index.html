@@ -38,7 +38,7 @@ Posted on
 Jan 19, 2020
 </time>
 |
-2019 words
+2048 words
 |
 ~5 mins
 </div>
@@ -50,26 +50,69 @@ Jan 19, 2020
 <p>nohup是一个POSIX命令。人如其名“NO”+“HUP（hangup）”，“HUP”是挂起信号，“NOHUP”就是忽略挂起信号。</p>
 <h2 id=实用版说明>实用版说明</h2>
 <h3 id=nohup>NOHUP</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup ping www.baidu.com &gt; log.txt
-</code></pre></div><p>执行该命令后，当前<code>ping</code>命令会保持在<strong>前台</strong>运行，即我们没法继续在当前terminal执行其它命令。如果我们开启一个新的terminal，然后执行：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ wc -l log.txt
-<span style=color:#ae81ff>24</span> log.txt
-
-$ wc -l log.txt
-<span style=color:#ae81ff>28</span> log.txt
-</code></pre></div><p>会看到<code>wc</code>输出的数字在持续增长中。现在关闭运行<code>nohup</code>命令的terminal（即发出了SIGHUP信号）。在第二个terminal（运行<code>wc</code>命令的那个），再次执行：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ wc -l log.txt
-<span style=color:#ae81ff>32</span> log.txt
-
-$ wc -l log.txt
-<span style=color:#ae81ff>35</span> log.txt
-</code></pre></div><p>就能看到log.txt文件的行数依旧在持续增长，这说明<code>ping</code>命令并没有因为SIGHUP信号而终止。</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup ping www.baidu.com &gt; log.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>执行该命令后，当前<code>ping</code>命令会保持在<strong>前台</strong>运行，即我们没法继续在当前terminal执行其它命令。如果我们开启一个新的terminal，然后执行：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ wc -l log.txt
+24 log.txt
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wc -l log.txt
+28 log.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>会看到<code>wc</code>输出的数字在持续增长中。现在关闭运行<code>nohup</code>命令的terminal（即发出了SIGHUP信号）。在第二个terminal（运行<code>wc</code>命令的那个），再次执行：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ wc -l log.txt
+32 log.txt
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wc -l log.txt
+35 log.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>就能看到log.txt文件的行数依旧在持续增长，这说明<code>ping</code>命令并没有因为SIGHUP信号而终止。</p>
 <h3 id=关于符号>关于&符号</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup ping www.baidu.com &gt; log.txt &amp;
-</code></pre></div><p>执行该命令后，<code>ping</code>会在后台运行（即，我们可以在当前terminal内执行其他命令）。如果我们查看log.txt文件，就会看到文件在持续变大。<code>nohup</code>和<code>＆</code>的组合确保了命令可以永久在<strong>后台</strong>执行。</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup ping www.baidu.com &gt; log.txt &amp;
+</code></pre></td></tr></table>
+</div>
+</div><p>执行该命令后，<code>ping</code>会在后台运行（即，我们可以在当前terminal内执行其他命令）。如果我们查看log.txt文件，就会看到文件在持续变大。<code>nohup</code>和<code>＆</code>的组合确保了命令可以永久在<strong>后台</strong>执行。</p>
 <h3 id=关于重定向操作符>关于重定向操作符</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup ping www.baidu.com &gt; log.txt 2&gt;&amp;<span style=color:#ae81ff>1</span> &amp;
-</code></pre></div><ul>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup ping www.baidu.com &gt; log.txt 2&gt;&amp;<span style=color:#ae81ff>1</span> &amp;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li><code>></code>操作符右侧接一个文件。如果文件不存在，则创建新文件，并将左侧命令输出<strong>覆盖</strong>到文件中</li>
 <li><code>>></code>操作符右侧同样接一个文件。如果文件不存在，则创建新文件，并将左侧命令输出<strong>追加</strong>到文件中</li>
 <li>0是标准输入（stdin），1是标准输出（stdout），2是标准错误输出（stderr）。<strong>2>&1</strong>是将标准错误重定向到标准输出。最后**> log.txt**再将标准输出重定向到文件log.txt</li>
@@ -78,8 +121,15 @@ $ wc -l log.txt
 <p>为了讲清楚NOHUP的机制，必须要先介绍一些概念：</p>
 <h3 id=进程组>进程组</h3>
 <p>一个进程及其子进程形成一个<strong>进程组</strong>。<strong>进程组</strong>中的第一个进程，称为<strong>进程组领导者</strong>（process group leader）。每个进程有一个ID（PID）。进程的父进程的ID叫PPID。进程组ID（PGID）用<strong>进程组领导者</strong>的PID。举个例子：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup ping www.baidu.com | less
-</code></pre></div><p>会产生一个<strong>进程组</strong>。<strong>进程组</strong>会包含至少三个进程<code>nohup``ping``less</code>。</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup ping www.baidu.com | less
+</code></pre></td></tr></table>
+</div>
+</div><p>会产生一个<strong>进程组</strong>。<strong>进程组</strong>会包含至少三个进程<code>nohup``ping``less</code>。</p>
 <h3 id=会话>会话</h3>
 <p>一个<strong>会话</strong>会由多个<strong>进程组</strong>组成。创建<strong>会话</strong>的进程称为<strong>会话领导者</strong>（session leader）。每个<strong>会话</strong>有一个ID（SID），为<strong>会话领导者</strong>进程ID。</p>
 <h3 id=终端terminal>终端（terminal）</h3>
@@ -87,24 +137,57 @@ $ wc -l log.txt
 <h3 id=shell>Shell</h3>
 <p>当我们在Linux系统中，启动一个<strong>终端</strong>，实际上启动了一个<strong>进程</strong>，该进程执行<strong>shell</strong>应用，解释和处理各种命令。这个进程作为<strong>会话领导者</strong>形成了一个新<strong>会话</strong>。当然隐含着也创建了一个<strong>进程组</strong>。如果我们打开两个<strong>终端</strong>，那就开启了两个会话。举个例子：</p>
 <p>先启动一个<strong>终端</strong>，执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup www.bing.com &amp;
-
-$ ping www.baidu.com
-</code></pre></div><p>再启动一个<strong>终端</strong>，执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nohup www.google.com &amp;
-</code></pre></div><p>然后让我们用<code>ps j</code>看看这几个进程和会话：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>====================</span>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup www.bing.com &amp;
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ ping www.baidu.com
+</code></pre></td></tr></table>
+</div>
+</div><p>再启动一个<strong>终端</strong>，执行</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ nohup www.google.com &amp;
+</code></pre></td></tr></table>
+</div>
+</div><p>然后让我们用<code>ps j</code>看看这几个进程和会话：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>===== ===== ===== ===== ===== ====================
 PPID  PID   PGID  SID   TPGID COMMAND
-<span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>====================</span>
- <span style=color:#ae81ff>6133</span> <span style=color:#ae81ff>12708</span>  <span style=color:#ae81ff>5693</span>  <span style=color:#ae81ff>5693</span> <span style=color:#ae81ff>5693</span>  SecureCRT
-<span style=color:#ae81ff>12708</span> <span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>18176</span> -zsh
-<span style=color:#ae81ff>12708</span> <span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>18191</span> -zsh
-<span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>18165</span> <span style=color:#ae81ff>18165</span> <span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>18176</span> ping www.bing.com
-<span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>18176</span> <span style=color:#ae81ff>18176</span> <span style=color:#ae81ff>12720</span> <span style=color:#ae81ff>18176</span> ping www.baidu.com
-<span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>18184</span> <span style=color:#ae81ff>18184</span> <span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>18191</span> ping www.google.com
-<span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>18191</span> <span style=color:#ae81ff>18191</span> <span style=color:#ae81ff>12786</span> <span style=color:#ae81ff>18191</span> ps j
-<span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>=====</span> <span style=color:#f92672>====================</span>
-</code></pre></div><p>可看到几个事情：</p>
+===== ===== ===== ===== ===== ====================
+ 6133 12708  5693  5693 5693  SecureCRT
+12708 12720 12720 12720 18176 -zsh
+12708 12786 12786 12786 18191 -zsh
+12720 18165 18165 12720 18176 ping www.bing.com
+12720 18176 18176 12720 18176 ping www.baidu.com
+12786 18184 18184 12786 18191 ping www.google.com
+12786 18191 18191 12786 18191 ps j
+===== ===== ===== ===== ===== ====================
+</code></pre></td></tr></table>
+</div>
+</div><p>可看到几个事情：</p>
 <ul>
 <li><code>www.bing.com</code>和<code>www.baidu.com</code>的SID是一样的，在同一个会话中</li>
 <li><code>www.google.com</code>则在另一个会话中</li>
@@ -130,10 +213,26 @@ PPID  PID   PGID  SID   TPGID COMMAND
 <a href=https://foreverfaint.github.io/posts/first-try-on-flutter/>Newer</a>
 </div>
 <div class=c-pagination__older>
-<a href=https://foreverfaint.github.io/posts/scrapy-cookie/>Older</a>
+<a href=https://foreverfaint.github.io/posts/valine/>Older</a>
 </div>
 </div>
 </nav>
+<section class=p-related>
+<h3>See Also</h3>
+<div class=p-related__list>
+<div class="swiper swiper-container">
+<ul class=swiper-wrapper>
+<li class="p-related__item swiper-slide">
+<a href=/posts/jq/>
+<span>jq</span>
+</a>
+</li>
+</ul>
+</div>
+<div class=related-prev></div>
+<div class=related-next></div>
+</div>
+</section>
 <aside class=p-author>
 <div class="c-avatar p-author__avatar">
 <img alt="Author Avatar" src=/images/avatar.jpg>

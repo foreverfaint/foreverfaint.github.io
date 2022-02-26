@@ -38,7 +38,7 @@ Posted on
 Nov 1, 2015
 </time>
 |
-1153 words
+1207 words
 |
 ~3 mins
 </div>
@@ -50,13 +50,38 @@ Nov 1, 2015
 <section id=js-article class=p-article__body>
 <p>最近用python 2.7做数据处理。数据说大不大，说小不小，千万级别。显然用Hadoop是大材小用。可由于每笔数据都是一个很大的json对象，处理起来很耗内存。单机加到8GB，依旧会出现OOM。不过还好此类问题有成熟的解决方案“流水线式的数据处理”：每次从文件读一笔记录数据，处理一笔数据，把处理结果持久化，相应的对象实例（内存）被回收。方案成熟易实现。先把代码列在下面，然后再解释其中遇到的坑。</p>
 <p>首先我们有一个读取数据的方法，大致如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>read_data</span>(file_name):
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>read_data</span>(file_name):
     <span style=color:#66d9ef>with</span> open(file_name, mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;r&#39;</span>) <span style=color:#66d9ef>as</span> f:
             <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> f<span style=color:#f92672>.</span>readlines():
                 <span style=color:#f92672>from</span> json <span style=color:#f92672>import</span> loads
                 <span style=color:#66d9ef>yield</span> loads(line, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>)
-</code></pre></div><p>还要有一个将数据写入文件的方法：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>write_to_text_file</span>(items, output_file):
+</code></pre></td></tr></table>
+</div>
+</div><p>还要有一个将数据写入文件的方法：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>write_to_text_file</span>(items, output_file):
     <span style=color:#f92672>from</span> json <span style=color:#f92672>import</span> dumps
     i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
     <span style=color:#66d9ef>with</span> open(output_file, mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;w&#39;</span>) <span style=color:#66d9ef>as</span> f:
@@ -66,19 +91,51 @@ Nov 1, 2015
             f<span style=color:#f92672>.</span>write(<span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span>)
             <span style=color:#66d9ef>if</span> i <span style=color:#f92672>%</span> <span style=color:#ae81ff>10000</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
                 print i
-</code></pre></div><p>最后把代码串在一起，主流程代码如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>data <span style=color:#f92672>=</span> read_data(<span style=color:#e6db74>&#39;data.txt&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>最后把代码串在一起，主流程代码如下：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>data <span style=color:#f92672>=</span> read_data(<span style=color:#e6db74>&#39;data.txt&#39;</span>)
 data <span style=color:#f92672>=</span> filter(<span style=color:#66d9ef>lambda</span> item: should_keep(item), data)
 data <span style=color:#f92672>=</span> map(<span style=color:#66d9ef>lambda</span> item: convert_item(item), data)
 write_to_text_file(items, <span style=color:#e6db74>&#39;processed_data.txt&#39;</span>)
-</code></pre></div><p>可当你执行该程序后，可能会吃惊的发现，内存使用量完全没有下降。问题出在下面这一行：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> f<span style=color:#f92672>.</span>readlines():
-</code></pre></div><p>阅读<a href="https://docs.python.org/2/library/stdtypes.html?highlight=readlines#file.readlines">readlines</a>帮助文档之后，发现该函数如果不指定sizehint参数的话，会将文件内容全部读入内存，组成一个list。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>可当你执行该程序后，可能会吃惊的发现，内存使用量完全没有下降。问题出在下面这一行：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> f<span style=color:#f92672>.</span>readlines():
+</code></pre></td></tr></table>
+</div>
+</div><p>阅读<a href="https://docs.python.org/2/library/stdtypes.html?highlight=readlines#file.readlines">readlines</a>帮助文档之后，发现该函数如果不指定sizehint参数的话，会将文件内容全部读入内存，组成一个list。</p>
 <blockquote>
 <p>Read until EOF using <strong>readline()</strong> and return a list containing the lines thus read. If the optional sizehint argument is present, instead of reading up to EOF, whole lines totalling approximately sizehint bytes (possibly after rounding up to an internal buffer size) are read. Objects implementing a file-like interface may choose to ignore sizehint if it cannot be implemented, or cannot be implemented efficiently.</p>
 </blockquote>
 <p>修改读文件代码如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>read_data</span>(file_name):
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>read_data</span>(file_name):
     <span style=color:#66d9ef>with</span> open(file_name, mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;r&#39;</span>) <span style=color:#66d9ef>as</span> f:
         <span style=color:#f92672>from</span> json <span style=color:#f92672>import</span> loads
         <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
@@ -87,16 +144,49 @@ write_to_text_file(items, <span style=color:#e6db74>&#39;processed_data.txt&#39;
                 <span style=color:#66d9ef>yield</span> loads(line, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>)
             <span style=color:#66d9ef>else</span>:
                 <span style=color:#66d9ef>break</span>
-</code></pre></div><p>再次运行之后，再一次吃惊的发现内存依旧没有降下来。这回的问题出在map和filter方法上。Streaming依赖于 <code>yield</code> ，即generator expression（参看<a href=https://www.python.org/dev/peps/pep-0289/>PEP 0289</a>）的使用。map和filter在python2.7中是不是基于generator expression实现的呢？我们验证一下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>mapped</span>(n):
+</code></pre></td></tr></table>
+</div>
+</div><p>再次运行之后，再一次吃惊的发现内存依旧没有降下来。这回的问题出在map和filter方法上。Streaming依赖于 <code>yield</code> ，即generator expression（参看<a href=https://www.python.org/dev/peps/pep-0289/>PEP 0289</a>）的使用。map和filter在python2.7中是不是基于generator expression实现的呢？我们验证一下：</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>mapped</span>(n):
     print <span style=color:#e6db74>&#39;mapped </span><span style=color:#e6db74>%d</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> n
     <span style=color:#66d9ef>return</span> n
     
 <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>filtered</span>(n):
     print <span style=color:#e6db74>&#39;filtered </span><span style=color:#e6db74>%d</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> n
     <span style=color:#66d9ef>return</span> n <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>
-</code></pre></div><p>如果map或者filter是generator expression实现的，很明显只有最后一步list(data)才会触发generator执行，这样mark1和mark2两个字符串会在filtered XXX和mapped XXX之前打印出来。可事实上，运行后的结果如下</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> data <span style=color:#f92672>=</span> [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>]
+</code></pre></td></tr></table>
+</div>
+</div><p>如果map或者filter是generator expression实现的，很明显只有最后一步list(data)才会触发generator执行，这样mark1和mark2两个字符串会在filtered XXX和mapped XXX之前打印出来。可事实上，运行后的结果如下</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> data <span style=color:#f92672>=</span> [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>]
 <span style=color:#f92672>&gt;&gt;&gt;</span> data <span style=color:#f92672>=</span> map(mapped, data)
 <span style=color:#f92672>&gt;&gt;&gt;</span> print <span style=color:#e6db74>&#39;mark1&#39;</span>
 mapped <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
@@ -110,16 +200,28 @@ filtered <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
 filtered <span style=color:#ae81ff>0</span>
 filtered <span style=color:#ae81ff>1</span>
 mark2
-</code></pre></div><p>这说明map和filter是立即执行，而非generator expression的实现。正是这个原因，导致数据依旧是全部读入内存中。阅读<a href=https://docs.python.org/2/library/functions.html#filter>map和filter的帮助文档</a>后发现map和filter等价于list comprehension，是立即执行，而非generator expression。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>这说明map和filter是立即执行，而非generator expression的实现。正是这个原因，导致数据依旧是全部读入内存中。阅读<a href=https://docs.python.org/2/library/functions.html#filter>map和filter的帮助文档</a>后发现map和filter等价于list comprehension，是立即执行，而非generator expression。</p>
 <blockquote>
 <p>Note that filter(function, iterable) is equivalent to <strong>[</strong> item for item in iterable if function(item) <strong>]</strong> if function is not None and <strong>[</strong> item for item in iterable if item <strong>]</strong> if function is None.</p>
 </blockquote>
 <p>将map和filter调整为generator expression的代码为：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>data <span style=color:#f92672>=</span> read_data(<span style=color:#e6db74>&#39;data.txt&#39;</span>)
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>data <span style=color:#f92672>=</span> read_data(<span style=color:#e6db74>&#39;data.txt&#39;</span>)
 data <span style=color:#f92672>=</span> (item <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data <span style=color:#66d9ef>if</span> should_keep(item)) 
 data <span style=color:#f92672>=</span> (convert_item(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data)
 write_to_text_file(items, <span style=color:#e6db74>&#39;processed_data.txt&#39;</span>)
-</code></pre></div><p>经过这次调整之后，内存再也不是问题。我们的Streaming Pipeline终于完工了。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>经过这次调整之后，内存再也不是问题。我们的Streaming Pipeline终于完工了。</p>
 </section>
 <footer>
 <div id=disqus_thread></div>
@@ -128,7 +230,7 @@ write_to_text_file(items, <span style=color:#e6db74>&#39;processed_data.txt&#39;
 <nav class="p-pagination c-pagination">
 <div class=c-pagination__ctrl>
 <div class=c-pagination__newer>
-<a href=https://foreverfaint.github.io/posts/scrapy-cookie/>Newer</a>
+<a href=https://foreverfaint.github.io/posts/streaming-pipeline-in-python-2/>Newer</a>
 </div>
 <div class=c-pagination__older>
 </div>

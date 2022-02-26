@@ -38,7 +38,7 @@ Posted on
 Feb 24, 2022
 </time>
 |
-2027 words
+2030 words
 |
 ~5 mins
 </div>
@@ -51,43 +51,97 @@ Feb 24, 2022
 <p>首先，NVIDIA NGC为每个TensorRT的版本提供了<a href=https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/rel_22-01.html>docker镜像</a>。具体的镜像使用方法参见<a href=https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorrt>NGC TensorRT页面</a> 。简单说，开发者基于官方镜像build自己的镜像。</p>
 <h2 id=使用官方镜像>使用官方镜像</h2>
 <p>例如运行<strong>22.01</strong>版本的tensorrt镜像：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run --gpus all --rm nvcr.io/nvidia/tensorrt:22.01-py3 nvidia-smi
-
-<span style=color:#f92672>=====================</span>
-<span style=color:#f92672>==</span> NVIDIA TensorRT <span style=color:#f92672>==</span>
-<span style=color:#f92672>=====================</span>
-
-NVIDIA Release 22.01 <span style=color:#f92672>(</span>build 30856447<span style=color:#f92672>)</span>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ docker run --gpus all --rm nvcr.io/nvidia/tensorrt:22.01-py3 nvidia-smi
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>=====================
+== NVIDIA TensorRT ==
+=====================
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>NVIDIA Release 22.01 (build 30856447)
 NVIDIA TensorRT Version 8.2.2
-Copyright <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> 2016-2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
-
-Container image Copyright <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> 2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
-
-https://developer.nvidia.com/tensorrt
-
-Various files include modifications <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> NVIDIA CORPORATION &amp; AFFILIATES.  All rights reserved.
-
-This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+Copyright (c) 2016-2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>Container image Copyright (c) 2022, NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>https://developer.nvidia.com/tensorrt
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>Various files include modifications (c) NVIDIA CORPORATION &amp; AFFILIATES.  All rights reserved.
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>This container image and its contents are governed by the NVIDIA Deep Learning Container License.
 By pulling and using the container, you accept the terms and conditions of this license:
 https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
-
-To install Python sample dependencies, run /opt/tensorrt/python/python_setup.sh
-
-To install the open-source samples corresponding to this TensorRT release version
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>To install Python sample dependencies, run /opt/tensorrt/python/python_setup.sh
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>To install the open-source samples corresponding to this TensorRT release version
 run /opt/tensorrt/install_opensource.sh.  To build the open source parsers,
-plugins, and samples <span style=color:#66d9ef>for</span> current top-of-tree on master or a different branch,
+plugins, and samples for current top-of-tree on master or a different branch,
 run /opt/tensorrt/install_opensource.sh -b &lt;branch&gt;
-See https://github.com/NVIDIA/TensorRT <span style=color:#66d9ef>for</span> more information.
-
-Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2022</span>       
+See https://github.com/NVIDIA/TensorRT for more information.
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>Fri Feb 25 07:22:53 2022       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 510.54       Driver Version: 510.54       CUDA Version: 11.6     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
-|<span style=color:#f92672>===============================</span>+<span style=color:#f92672>======================</span>+<span style=color:#f92672>======================</span>|
-|   <span style=color:#ae81ff>0</span>  Tesla T4            Off  | 00000000:02:00.0 Off |                    <span style=color:#ae81ff>0</span> |
+|===============================+======================+======================|
+|   0  Tesla T4            Off  | 00000000:02:00.0 Off |                    0 |
 | N/A   51C    P0    29W /  70W |   1861MiB / 15360MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
@@ -96,12 +150,14 @@ Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
-|<span style=color:#f92672>=============================================================================</span>|
-|    <span style=color:#ae81ff>0</span>   N/A  N/A      <span style=color:#ae81ff>1671</span>      G                                      14MiB |
-|    <span style=color:#ae81ff>0</span>   N/A  N/A    <span style=color:#ae81ff>624052</span>      G                                      14MiB |
-|    <span style=color:#ae81ff>0</span>   N/A  N/A   <span style=color:#ae81ff>1306910</span>      C                                    1829MiB |
+|=============================================================================|
+|    0   N/A  N/A      1671      G                                      14MiB |
+|    0   N/A  N/A    624052      G                                      14MiB |
+|    0   N/A  N/A   1306910      C                                    1829MiB |
 +-----------------------------------------------------------------------------+
-</code></pre></div><blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><strong>22.01</strong>为镜像版本号，而非tensorrt版本号。</p>
 </blockquote>
 <p>查看不同版本镜像中安装了哪些软件，可查看<a href=https://docs.nvidia.com/deeplearning/tensorrt/container-release-notes/rel_22-01.html>TensorRT发布页面</a>。<strong>22.01</strong>安装了：</p>
@@ -137,33 +193,72 @@ Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2
 <h2 id=创建dockerfile>创建Dockerfile</h2>
 <h3 id=进行ubuntu配置>进行Ubuntu配置</h3>
 <p>使用<code>dockerfile:1</code>的语法，可以按多stage方法进行构建。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#75715e># syntax=docker/dockerfile:1</span><span style=color:#960050;background-color:#1e0010>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#75715e># syntax=docker/dockerfile:1</span><span style=color:#960050;background-color:#1e0010>
 </span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> nvidia/cuda:11.6.0-runtime-ubuntu20.04 AS Base</span><span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p><code>./sources-focal.list</code>是一个自定义的apt源。比如使用国内（中国大陆）的apt源替换默认的海外apt源，可以大大提供安装速度和稳定性。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>COPY</span> ./sources-focal.list /etc/apt/sources.list<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>设置<code>DEBIAN_FRONTEND=noninteractive</code>防止安装过程中，出现<code>prompt</code>提示进行某项配置（例如：时区和键盘layout）。不过貌似从<code>cuda</code>镜像开始安装，这些配置已经进行过设置，所以可以跳过这些步骤。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>ENV</span> DEBIAN_FRONTEND<span style=color:#f92672>=</span>noninteractive
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>./sources-focal.list</code>是一个自定义的apt源。比如使用国内（中国大陆）的apt源替换默认的海外apt源，可以大大提供安装速度和稳定性。</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>COPY</span> ./sources-focal.list /etc/apt/sources.list<span style=color:#960050;background-color:#1e0010>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>设置<code>DEBIAN_FRONTEND=noninteractive</code>防止安装过程中，出现<code>prompt</code>提示进行某项配置（例如：时区和键盘layout）。不过貌似从<code>cuda</code>镜像开始安装，这些配置已经进行过设置，所以可以跳过这些步骤。</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>ENV</span> DEBIAN_FRONTEND<span style=color:#f92672>=</span>noninteractive
 
 <span style=color:#66d9ef>RUN</span> apt-get -y update <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    apt-get install -y --no-install-recommends tzdata keyboard-configuration software-properties-common<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><h3 id=安装python>安装Python</h3>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=安装python>安装Python</h3>
 <p>基础镜像中并没有安装<code>docker</code>，所以第二步可以选择python版本进行安装。本文以<code>python 3.8</code>为例：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install curl wget autoconf automake libtool python3.8 python3.8-dev python3.8-distutils ffmpeg <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install curl wget autoconf automake libtool python3.8 python3.8-dev python3.8-distutils ffmpeg <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    update-alternatives --install /usr/bin/python python /usr/bin/python3.8 <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    python3 get-pip.py <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    pip install -U pip setuptools -i https://mirrors.aliyun.com/pypi/simple <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple  <span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>其中：</p>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>其中：</p>
 <ul>
 <li><code>update-alternatives</code>将<code>python</code>和<code>python3</code>命令指向<code>python3.8</code></li>
 <li><code>python3 get-pip.py</code>安装的<code>pip</code>，会放到<code>/usr/local/bin/pip</code>这个位置，而不是<code>/usr/bin/pip</code></li>
 <li><code>pip config set global.index-url https://mirrors.aliyun.com/pypi/simple</code>设置一个国内（中国大陆）更快的<code>pip</code>源</li>
 </ul>
 <h3 id=安装tensorrt>安装TensorRT</h3>
-<p>安装过程参考<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing>Nvidia TensorRT Installation</a>。特别是在<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-debian>4.1. Debian Installation</a>一节有一句重要的提示，重要中的重要我进行了加粗。我们正是在用包含了<code>cuda</code>和<code>cudnn</code>的基础镜像安装！如果没看到这句话，各种下载和配置尝试会耽误不少时间 😄</p>
+<p>安装过程参考<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing>Nvidia TensorRT Installation</a>。特别是在<a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-debian>4.1. Debian Installation</a>一节有一句重要的提示，重要中的重要我进行了加粗。我们正是在用包含了<code>cuda</code>和<code>cudnn</code>的基础镜像安装！如果没看到这句话，各种下载和配置尝试会耽误不少时间 :smile:</p>
 <blockquote>
 <p>For advanced users who are already familiar with TensorRT and want to get their application running quickly, are <strong>using an NVIDIA CUDA container with cuDNN included</strong>, or want to setup automation, follow the network repo installation instructions (see Using <a href=https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#maclearn-net-repo-install>The NVIDIA CUDA Network Repo For Debian Installation</a>).</p>
 </blockquote>
@@ -172,10 +267,19 @@ Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2
 <p>Note: If you are using a CUDA container with cuDNN included, then the NVIDIA CUDA network repository will already be set up and you can skip step 1.</p>
 </blockquote>
 <p>这一节一共3步，如上第1步可以忽略了，而第3步只有在安装<em>非最新版本TensorRT</em>的时候才用得上。因此我们只需要关注第2步。我们的镜像是作为运行时镜像使用，不用于开发，所以只安装 <em>For only running TensorRT C++ applications</em> 和 <em>For running TensorRT Python applications</em></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install libnvinfer8 libnvonnxparsers8 libnvparsers8 libnvinfer-plugin8 <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>RUN</span> apt-get -y install libnvinfer8 libnvonnxparsers8 libnvparsers8 libnvinfer-plugin8 <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    pip install numpy <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    apt-get -y install python3-libnvinfer<span style=color:#960050;background-color:#1e0010>
-</span></code></pre></div><p>以上即为自定义TensorRT镜像的制作过程。</p>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>以上即为自定义TensorRT镜像的制作过程。</p>
 </section>
 <footer>
 <div id=disqus_thread></div>
@@ -186,7 +290,7 @@ Fri Feb <span style=color:#ae81ff>25</span> 07:22:53 <span style=color:#ae81ff>2
 <div class=c-pagination__newer>
 </div>
 <div class=c-pagination__older>
-<a href=https://foreverfaint.github.io/posts/360-feedback/>Older</a>
+<a href=https://foreverfaint.github.io/posts/python-test-2-mock/>Older</a>
 </div>
 </div>
 </nav>

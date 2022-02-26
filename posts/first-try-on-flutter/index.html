@@ -38,13 +38,14 @@ Posted on
 Feb 10, 2020
 </time>
 |
-2647 words
+2710 words
 |
 ~6 mins
 </div>
 </div>
 <a href=https://foreverfaint.github.io/tags/android class=c-tag>Android</a>
 <a href=https://foreverfaint.github.io/tags/flutter class=c-tag>Flutter</a>
+<a href=https://foreverfaint.github.io/tags/writing class=c-tag>Writing</a>
 </div>
 </header>
 <section id=js-article class=p-article__body>
@@ -65,27 +66,58 @@ Feb 10, 2020
 </ol>
 <p>这篇文章想借flutter环境搭建中遇到的问题，讲讲怎样才算一篇合格的issue resolution博客。</p>
 <p>在Android Studio上安装flutter和dart开发应用。按<a href=https://flutter.dev/docs/get-started/install/linux>官方文档</a>安装完毕后运行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ flutter doctor
-
-<span style=color:#f92672>[</span>-<span style=color:#f92672>]</span> Android toolchain - develop <span style=color:#66d9ef>for</span> Android devices
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ flutter doctor
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>[-] Android toolchain - develop for Android devices
 ✗ Android license status unknown.
 • Try re-installing or updating your Android SDK,
-    visit https://flutter.dev/setup/#android-setup <span style=color:#66d9ef>for</span> detailed instructions.
-</code></pre></div><p>出现了一个**Android license status unknown.**的错误。搜索后，找到一篇<a href=https://blog.csdn.net/weixin_41319450/article/details/90264627>关于升级Android SDK的文章</a>，按文章所说许可证未知的情况下，应该升级sdkmanager，故执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ /home/Android/Sdk/tools/bin/sdkmanager --update
-
-Exception in thread <span style=color:#e6db74>&#34;main&#34;</span> java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
-    at com.android.repository.api.SchemaModule$SchemaModuleVersion.&lt;init&gt;<span style=color:#f92672>(</span>SchemaModule.java:156<span style=color:#f92672>)</span>
-    at com.android.repository.api.SchemaModule.&lt;init&gt;<span style=color:#f92672>(</span>SchemaModule.java:75<span style=color:#f92672>)</span>
-    at com.android.sdklib.repository.AndroidSdkHandler.&lt;clinit&gt;<span style=color:#f92672>(</span>AndroidSdkHandler.java:81<span style=color:#f92672>)</span>
-    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main<span style=color:#f92672>(</span>SdkManagerCli.java:73<span style=color:#f92672>)</span>
-    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main<span style=color:#f92672>(</span>SdkManagerCli.java:48<span style=color:#f92672>)</span>
+    visit https://flutter.dev/setup/#android-setup for detailed instructions.
+</code></pre></td></tr></table>
+</div>
+</div><p>出现了一个**Android license status unknown.**的错误。搜索后，找到一篇<a href=https://blog.csdn.net/weixin_41319450/article/details/90264627>关于升级Android SDK的文章</a>，按文章所说许可证未知的情况下，应该升级sdkmanager，故执行</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ /home/Android/Sdk/tools/bin/sdkmanager --update
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>Exception in thread &#34;main&#34; java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
+    at com.android.repository.api.SchemaModule$SchemaModuleVersion.&lt;init&gt;(SchemaModule.java:156)
+    at com.android.repository.api.SchemaModule.&lt;init&gt;(SchemaModule.java:75)
+    at com.android.sdklib.repository.AndroidSdkHandler.&lt;clinit&gt;(AndroidSdkHandler.java:81)
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:73)
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:48)
 Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
-    at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass<span style=color:#f92672>(</span>BuiltinClassLoader.java:581<span style=color:#f92672>)</span>
-    at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass<span style=color:#f92672>(</span>ClassLoaders.java:178<span style=color:#f92672>)</span>
-    at java.base/java.lang.ClassLoader.loadClass<span style=color:#f92672>(</span>ClassLoader.java:521<span style=color:#f92672>)</span>
-    ... <span style=color:#ae81ff>5</span> more
-</code></pre></div><p>执行失败。用关键词<em>sdkmanager &ndash;update java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema</em>再一通搜索，发现很多讨论这个问题的博文，比如：</p>
+    at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+    at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+    at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+    ... 5 more
+</code></pre></td></tr></table>
+</div>
+</div><p>执行失败。用关键词<em>sdkmanager &ndash;update java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema</em>再一通搜索，发现很多讨论这个问题的博文，比如：</p>
 <ul>
 <li>
 <p><a href=https://blog.csdn.net/u011339184/article/details/103787959>关于flutter sdk安装时候的xxxxx\SDK\tools\bin\sdkmanager &ndash;update快捷解法</a>和我遇到的问题细节略有不同（报错不一致），但基本可以辅助我得出一个结论：问题是<em>sdkmanager依赖的</em>java环境导致的。回头来看这篇文章本身，就属于“茶壶里煮饺子，有嘴倒不出”类型。博主应该是解决了自己的问题，但写出的文章囫囵吞枣，让其他新手无从下手。</p>
@@ -109,53 +141,115 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
 </li>
 </ul>
 <p>梳理一下终极解决方案。在Ubuntu 18.04 + Android Studio 3.5.1 + OpenJDK 11的组合上验证通过。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd /home/Android/tools/bin
-
-$ mkdir jaxb_lib
-
-$ wget https://repo.maven.apache.org/maven2/javax/activation/activation/1.1.1/activation-1.1.1.jar -O jaxb_lib/activation.jar
-
-$ wget https://repo.maven.apache.org/maven2/javax/xml/jaxb-impl/2.1/jaxb-impl-2.1.jar -O jaxb_lib/jaxb-impl.jar
-
-$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-xjc/2.3.2/jaxb-xjc-2.3.2.jar -O jaxb_lib/jaxb-xjc.jar
-
-$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar -O jaxb_lib/jaxb-core.jar
-
-$ wget hhttps://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-jxc/2.3.2/jaxb-jxc-2.3.2.jar -O jaxb_lib/jaxb-jxc.jar
-
-$ wget https://repo.maven.apache.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar -O jaxb_lib/jaxb-api.jar
-
-$ vim sdkmanager
-</code></pre></div><p>最后一步中，向脚本中增加几个jar路径到CLASSPATH环境变量</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>CLASSPATH<span style=color:#f92672>=</span>$CLASSPATH:$APP_HOME/bin/jaxb_lib/activation.jar:$APP_HOME/bin/jaxb_lib/jaxb-impl.jar:$APP_HOME/bin/jaxb_lib/jaxb-xjc.jar:$APP_HOME/bin/jaxb_lib/jaxb-core.jar:$APP_HOME/bin/jaxb_lib/jaxb-jxc.jar:$APP_HOME/bin/jaxb_lib/jaxb-api.jar
-</code></pre></div><p>再试一下</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ /home/Android/Sdk/tools/bin/sdkmanager --update
-
-WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 <span style=color:#f92672>(</span>file:/home/hao/Android/Sdk/tools/bin/jaxb_lib/jaxb-impl.jar<span style=color:#f92672>)</span> to method java.lang.ClassLoader.defineClass<span style=color:#f92672>(</span>java.lang.String,byte<span style=color:#f92672>[]</span>,int,int<span style=color:#f92672>)</span>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ cd /home/Android/tools/bin
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ mkdir jaxb_lib
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget https://repo.maven.apache.org/maven2/javax/activation/activation/1.1.1/activation-1.1.1.jar -O jaxb_lib/activation.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget https://repo.maven.apache.org/maven2/javax/xml/jaxb-impl/2.1/jaxb-impl-2.1.jar -O jaxb_lib/jaxb-impl.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-xjc/2.3.2/jaxb-xjc-2.3.2.jar -O jaxb_lib/jaxb-xjc.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar -O jaxb_lib/jaxb-core.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget hhttps://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-jxc/2.3.2/jaxb-jxc-2.3.2.jar -O jaxb_lib/jaxb-jxc.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ wget https://repo.maven.apache.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar -O jaxb_lib/jaxb-api.jar
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ vim sdkmanager
+</code></pre></td></tr></table>
+</div>
+</div><p>最后一步中，向脚本中增加几个jar路径到CLASSPATH环境变量</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>CLASSPATH=$CLASSPATH:$APP_HOME/bin/jaxb_lib/activation.jar:$APP_HOME/bin/jaxb_lib/jaxb-impl.jar:$APP_HOME/bin/jaxb_lib/jaxb-xjc.jar:$APP_HOME/bin/jaxb_lib/jaxb-core.jar:$APP_HOME/bin/jaxb_lib/jaxb-jxc.jar:$APP_HOME/bin/jaxb_lib/jaxb-api.jar
+</code></pre></td></tr></table>
+</div>
+</div><p>再试一下</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash-session data-lang=bash-session>$ /home/Android/Sdk/tools/bin/sdkmanager --update
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 (file:/home/hao/Android/Sdk/tools/bin/jaxb_lib/jaxb-impl.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
 WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1
-WARNING: Use --illegal-access<span style=color:#f92672>=</span>warn to enable warnings of further illegal reflective access operations
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
 Warning: File /home/hao/.android/repositories.cfg could not be loaded.          
-<span style=color:#f92672>[=======================================]</span> 100% Computing updates...             
+[=======================================] 100% Computing updates...             
 ------------------------------------------------------------    
-
-$ flutter doctor
-
-Doctor summary <span style=color:#f92672>(</span>to see all details, run flutter doctor -v<span style=color:#f92672>)</span>:
-<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Flutter <span style=color:#f92672>(</span>Channel beta, v1.14.6, on Linux, locale en_US.UTF-8<span style=color:#f92672>)</span>
-<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Android toolchain - develop <span style=color:#66d9ef>for</span> Android devices <span style=color:#f92672>(</span>Android SDK version 29.0.2<span style=color:#f92672>)</span>
-<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Android Studio <span style=color:#f92672>(</span>version 3.5<span style=color:#f92672>)</span>
-<span style=color:#f92672>[</span>!<span style=color:#f92672>]</span> IntelliJ IDEA Community Edition <span style=color:#f92672>(</span>version 2019.2<span style=color:#f92672>)</span>
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>$ flutter doctor
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel beta, v1.14.6, on Linux, locale en_US.UTF-8)
+[✓] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+[✓] Android Studio (version 3.5)
+[!] IntelliJ IDEA Community Edition (version 2019.2)
     ✗ Flutter plugin not installed; this adds Flutter specific functionality.
     ✗ Dart plugin not installed; this adds Dart specific functionality.
-<span style=color:#f92672>[</span>!<span style=color:#f92672>]</span> VS Code <span style=color:#f92672>(</span>version 1.41.1<span style=color:#f92672>)</span>
+[!] VS Code (version 1.41.1)
     ✗ Flutter extension not installed; install from
-    https://marketplace.visualstudio.com/items?itemName<span style=color:#f92672>=</span>Dart-Code.flutter
-<span style=color:#f92672>[</span>✓<span style=color:#f92672>]</span> Connected device <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> available<span style=color:#f92672>)</span>
-
-! Doctor found issues in <span style=color:#ae81ff>2</span> categories.
-</code></pre></div><p>和Android Studio相关的flutter配置全部正常了！</p>
+    https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+[✓] Connected device (1 available)
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>! Doctor found issues in 2 categories.
+</code></pre></td></tr></table>
+</div>
+</div><p>和Android Studio相关的flutter配置全部正常了！</p>
 </section>
 <footer>
 <div id=disqus_thread></div>
@@ -164,13 +258,29 @@ Doctor summary <span style=color:#f92672>(</span>to see all details, run flutter
 <nav class="p-pagination c-pagination">
 <div class=c-pagination__ctrl>
 <div class=c-pagination__newer>
-<a href=https://foreverfaint.github.io/posts/360-feedback/>Newer</a>
+<a href=https://foreverfaint.github.io/posts/sealed-keyword-in-kotlin/>Newer</a>
 </div>
 <div class=c-pagination__older>
 <a href=https://foreverfaint.github.io/posts/nohup/>Older</a>
 </div>
 </div>
 </nav>
+<section class=p-related>
+<h3>See Also</h3>
+<div class=p-related__list>
+<div class="swiper swiper-container">
+<ul class=swiper-wrapper>
+<li class="p-related__item swiper-slide">
+<a href=/posts/kotlin-for-android/>
+<span>Kotlin开发Android应用</span>
+</a>
+</li>
+</ul>
+</div>
+<div class=related-prev></div>
+<div class=related-next></div>
+</div>
+</section>
 <aside class=p-author>
 <div class="c-avatar p-author__avatar">
 <img alt="Author Avatar" src=/images/avatar.jpg>
