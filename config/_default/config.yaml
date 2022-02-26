@@ -13,7 +13,8 @@ copyright: "&copy; Copyright notice"
 # dev66.xyz
 googleAnalytics: "G-HCGYD1XM6H"
 
-disqusShortname: "foreverfaint-github-io"
+# let us use https://utteranc.es/
+#disqusShortname: "foreverfaint-github-io"
 
 # enable get info from git commits, such as file modification time.
 # so we don't have to manually update it.

@@ -16,8 +16,9 @@ paginate: 10
 
 # Social accounts. Link to these accounts are displayed in the header and
 github: "foreverfaint"
+# let us use https://utteranc.es/
 # Disqus shortname
-disqus: "foreverfaint-github-io"
+#disqus: "foreverfaint-github-io"
 author: "Dev66"
 
 authorwebsite: "dev66.xyz"
