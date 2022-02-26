@@ -8,7 +8,10 @@ title: "Dev66"
 copyright: "&copy; Copyright notice"
 
 # Google Analytics API key.
-googleAnalytics: "G-28KXNTEDD2"
+# foreverfaint.github.io
+#googleAnalytics: "G-28KXNTEDD2"
+# dev66.xyz
+googleAnalytics: "G-HCGYD1XM6H"
 
 disqusShortname: "foreverfaint-github-io"
 
