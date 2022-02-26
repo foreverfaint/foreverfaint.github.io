@@ -20,7 +20,8 @@ enableRobotsTXT: true
 
 theme: "hugo_theme_pickles"
 
-enableEmoji: true
+# set it to false to avoid colon transformed to emoji unexpectedly
+enableEmoji: false
 
 # https://gohugo.io/content-management/urls/#canonicalization
 canonifyURLs: false

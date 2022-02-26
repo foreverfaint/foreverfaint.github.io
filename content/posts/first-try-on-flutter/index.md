@@ -6,6 +6,7 @@ category:
 tags:
     - Android
     - Flutter
+    - Writing
 ---
 
 最近在学习Flutter开发Android应用。新手搭环境难免遇到各种坑。一般都是边搜索边尝试，最终解决问题。因此“搜索”到别人的解法至关重要。我发现网上有大量的解法，但很多时候，要么“解法”缺斤短两，关键步骤缺失；要么知其然不知所以然，瞎猫碰死耗子解决问题，让读者无法借鉴。到底如何才算一篇合格的issue resolution博文，怎样才能帮到他人？
@@ -30,7 +31,7 @@ tags:
 
 在Android Studio上安装flutter和dart开发应用。按[官方文档](https://flutter.dev/docs/get-started/install/linux)安装完毕后运行
 
-```bash
+```bash-session
 $ flutter doctor
 
 [-] Android toolchain - develop for Android devices
@@ -41,7 +42,7 @@ $ flutter doctor
 
 出现了一个**Android license status unknown.**的错误。搜索后，找到一篇[关于升级Android SDK的文章](https://blog.csdn.net/weixin_41319450/article/details/90264627)，按文章所说许可证未知的情况下，应该升级sdkmanager，故执行
 
-```bash
+```bash-session
 $ /home/Android/Sdk/tools/bin/sdkmanager --update
 
 Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema
@@ -72,7 +73,7 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
 
 梳理一下终极解决方案。在Ubuntu 18.04 + Android Studio 3.5.1 + OpenJDK 11的组合上验证通过。
 
-```bash
+```bash-session
 $ cd /home/Android/tools/bin
 
 $ mkdir jaxb_lib
@@ -94,13 +95,13 @@ $ vim sdkmanager
 
 最后一步中，向脚本中增加几个jar路径到CLASSPATH环境变量
 
-```bash
+```bash-session
 CLASSPATH=$CLASSPATH:$APP_HOME/bin/jaxb_lib/activation.jar:$APP_HOME/bin/jaxb_lib/jaxb-impl.jar:$APP_HOME/bin/jaxb_lib/jaxb-xjc.jar:$APP_HOME/bin/jaxb_lib/jaxb-core.jar:$APP_HOME/bin/jaxb_lib/jaxb-jxc.jar:$APP_HOME/bin/jaxb_lib/jaxb-api.jar
 ```
 
 再试一下
 
-```bash
+```bash-session
 $ /home/Android/Sdk/tools/bin/sdkmanager --update
 
 WARNING: An illegal reflective access operation has occurred

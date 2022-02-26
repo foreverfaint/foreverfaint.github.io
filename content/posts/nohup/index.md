@@ -15,13 +15,13 @@ nohup是一个POSIX命令。人如其名“NO”+“HUP（hangup）”，“HUP�
 
 ### NOHUP
 
-```bash
+```bash-session
 $ nohup ping www.baidu.com > log.txt
 ```
 
 执行该命令后，当前`ping`命令会保持在**前台**运行，即我们没法继续在当前terminal执行其它命令。如果我们开启一个新的terminal，然后执行：
 
-```bash
+```bash-session
 $ wc -l log.txt
 24 log.txt
 
@@ -31,7 +31,7 @@ $ wc -l log.txt
 
 会看到`wc`输出的数字在持续增长中。现在关闭运行`nohup`命令的terminal（即发出了SIGHUP信号）。在第二个terminal（运行`wc`命令的那个），再次执行：
 
-```bash
+```bash-session
 $ wc -l log.txt
 32 log.txt
 
@@ -43,7 +43,7 @@ $ wc -l log.txt
 
 ### 关于&符号
 
-```bash
+```bash-session
 $ nohup ping www.baidu.com > log.txt &
 ```
 
@@ -51,7 +51,7 @@ $ nohup ping www.baidu.com > log.txt &
 
 ### 关于重定向操作符
 
-```bash
+```bash-session
 $ nohup ping www.baidu.com > log.txt 2>&1 &
 ```
 
@@ -67,7 +67,7 @@ $ nohup ping www.baidu.com > log.txt 2>&1 &
 
 一个进程及其子进程形成一个**进程组**。**进程组**中的第一个进程，称为**进程组领导者**（process group leader）。每个进程有一个ID（PID）。进程的父进程的ID叫PPID。进程组ID（PGID）用**进程组领导者**的PID。举个例子：
 
-```bash
+```bash-session
 $ nohup ping www.baidu.com | less
 ```
 
@@ -87,7 +87,7 @@ $ nohup ping www.baidu.com | less
 
 先启动一个**终端**，执行
 
-```bash
+```bash-session
 $ nohup www.bing.com &
 
 $ ping www.baidu.com
@@ -95,13 +95,13 @@ $ ping www.baidu.com
 
 再启动一个**终端**，执行
 
-```bash
+```bash-session
 $ nohup www.google.com &
 ```
 
 然后让我们用`ps j`看看这几个进程和会话：
 
-```bash
+```bash-session
 ===== ===== ===== ===== ===== ====================
 PPID  PID   PGID  SID   TPGID COMMAND
 ===== ===== ===== ===== ===== ====================

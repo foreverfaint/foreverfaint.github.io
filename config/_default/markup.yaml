@@ -5,7 +5,7 @@ highlight:
   hl_Lines: ""
   lineAnchors: ""
   lineNoStart: 1
-  lineNos: false
+  lineNos: true
   lineNumbersInTable: true
   noClasses: true
   style: monokai

@@ -6,7 +6,7 @@ My Hugo based blog. If you are not familiar to Hugo yet, please read [an excelle
 
 On Ubuntu
 
-```bash
+```bash-session
 $ sudo apt-get install hugo
 
 $ hugo version
@@ -21,7 +21,7 @@ Run the commands from the folder where README.md is.
 
 Find a theme at https://themes.gohugo.io/, e.g. https://github.com/mismith0227/hugo_theme_pickles
 
-```bash
+```bash-session
 $ cd ./themes
 
 $ git submodule add https://github.com/mismith0227/hugo_theme_pickles
@@ -40,7 +40,7 @@ $ echo theme = \"hugo_theme_pickles\" >> config.toml
 
 ### Init themes after cloning repository
 
-```bash
+```bash-session
 $ git submodule init
 
 $ git submodule update
@@ -48,7 +48,7 @@ $ git submodule update
 
 ### Update themes
 
-```bash
+```bash-session
 $ git submodule update --rebase --remote
 ```
 
@@ -56,7 +56,7 @@ $ git submodule update --rebase --remote
 
 Please read [How do I remove a submodule?](https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule)
 
-```bash
+```bash-session
 $ git rm themes/hugo-rocinante
 
 $ rm -rf .git/modules/themes/hugo-rocinante
@@ -76,14 +76,14 @@ $ git config --remove-section submodule.themes/hugo-rocinante
 
 ### Create New Post
 
-```bash
+```bash-session
 $ hugo new posts/my-first-post.md
 ./content/posts/build_tensorrt_docker_image.md created
 ```
 
 ### Preview
 
-```bash
+```bash-session
 $ hugo server -D
 
                    | EN  
@@ -109,6 +109,6 @@ Press Ctrl+C to stop
 
 ### Publish
 
-```bash
+```bash-session
 $ hugo --cleanDestinationDir --minify
 ```

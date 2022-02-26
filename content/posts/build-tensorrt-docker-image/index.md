@@ -16,7 +16,7 @@ tags:
 
 例如运行**22.01**版本的tensorrt镜像：
 
-```bash
+```bash-session
 $ docker run --gpus all --rm nvcr.io/nvidia/tensorrt:22.01-py3 nvidia-smi
 
 =====================
