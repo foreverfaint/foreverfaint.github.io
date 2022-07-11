@@ -6,7 +6,7 @@ highlight:
   lineAnchors: ""
   lineNoStart: 1
   lineNos: true
-  lineNumbersInTable: true
+  lineNumbersInTable: false
   noClasses: true
   style: solarized-light
   tabWidth: 4
