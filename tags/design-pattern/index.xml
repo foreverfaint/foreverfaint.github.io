@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Design Pattern on Dev66</title><link>https://dev66.xyz/tags/design-pattern/</link><description>Recent content in Design Pattern on Dev66</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; Copyright notice</copyright><lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/design-pattern/index.xml" rel="self" type="application/rss+xml"/><item><title>Streaming Pipeline in Python - 2</title><link>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</link><pubDate>Fri, 20 Nov 2015 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</guid><description>&lt;p>除了&lt;a href="https://dev66.xyz/posts/streaming-pipeline-in-python-1/">上一篇文章&lt;/a>中提到的几个问题，在使用Generator Expression的过程中，还遇到了一个bug。&lt;/p></description></item><item><title>Streaming Pipeline in Python - 1</title><link>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</link><pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</guid><description>&lt;p>最近用python 2.7做数据处理。数据说大不大，说小不小，千万级别。显然用Hadoop是大材小用。可由于每笔数据都是一个很大的json对象，处理起来很耗内存。单机加到8GB，依旧会出现OOM。不过还好此类问题有成熟的解决方案“流水线式的数据处理”：每次从文件读一笔记录数据，处理一笔数据，把处理结果持久化，相应的对象实例（内存）被回收。方案成熟易实现。先把代码列在下面，然后再解释其中遇到的坑。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Pattern on Dev66</title>
+    <link>https://dev66.xyz/tags/design-pattern/</link>
+    <description>Recent content in Design Pattern on Dev66</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streaming Pipeline in Python - 2</title>
+      <link>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</link>
+      <pubDate>Fri, 20 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</guid>
+      <description>&lt;p&gt;除了&lt;a href=&#34;https://dev66.xyz/posts/streaming-pipeline-in-python-1/&#34;&gt;上一篇文章&lt;/a&gt;中提到的几个问题，在使用Generator Expression的过程中，还遇到了一个bug。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Streaming Pipeline in Python - 1</title>
+      <link>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</guid>
+      <description>&lt;p&gt;最近用python 2.7做数据处理。数据说大不大，说小不小，千万级别。显然用Hadoop是大材小用。可由于每笔数据都是一个很大的json对象，处理起来很耗内存。单机加到8GB，依旧会出现OOM。不过还好此类问题有成熟的解决方案“流水线式的数据处理”：每次从文件读一笔记录数据，处理一笔数据，把处理结果持久化，相应的对象实例（内存）被回收。方案成熟易实现。先把代码列在下面，然后再解释其中遇到的坑。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Management on Dev66</title><link>https://dev66.xyz/categories/management/</link><description>Recent content in Management on Dev66</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; Copyright notice</copyright><lastBuildDate>Sun, 17 Jan 2021 15:04:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/categories/management/index.xml" rel="self" type="application/rss+xml"/><item><title>360环评</title><link>https://dev66.xyz/posts/360-feedback/</link><pubDate>Sun, 17 Jan 2021 15:04:00 +0800</pubDate><guid>https://dev66.xyz/posts/360-feedback/</guid><description>&lt;p>这是我司第二年做360环评。第一次环评时，发生了被反馈者拿着反馈结果找提供反馈的同事吵架的事请。这事儿隔了一年我才知道，感慨颇深：&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Management on Dev66</title>
+    <link>https://dev66.xyz/categories/management/</link>
+    <description>Recent content in Management on Dev66</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Sun, 17 Jan 2021 15:04:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/categories/management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>360环评</title>
+      <link>https://dev66.xyz/posts/360-feedback/</link>
+      <pubDate>Sun, 17 Jan 2021 15:04:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/360-feedback/</guid>
+      <description>&lt;p&gt;这是我司第二年做360环评。第一次环评时，发生了被反馈者拿着反馈结果找提供反馈的同事吵架的事请。这事儿隔了一年我才知道，感慨颇深：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

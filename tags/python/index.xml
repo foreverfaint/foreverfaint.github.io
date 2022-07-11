@@ -1,7 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Dev66</title><link>https://dev66.xyz/tags/python/</link><description>Recent content in Python on Dev66</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; Copyright notice</copyright><lastBuildDate>Thu, 07 Oct 2021 22:03:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Python测试开发1 - fixture</title><link>https://dev66.xyz/posts/python-test-1-fixture/</link><pubDate>Thu, 07 Oct 2021 22:03:00 +0800</pubDate><guid>https://dev66.xyz/posts/python-test-1-fixture/</guid><description>&lt;p>资深开发者实际时间分配有可能是4分调研+设计，3分编码，3分测试。且越是老鸟，测试比重越高。测试下功夫了，质量就到位了，返工次数少，调试难度低，工效KPI也就高了。本文分享&lt;code>Python&lt;/code>测试开发中的一些心得。&lt;/p></description></item><item><title>通过环境变量加载配置</title><link>https://dev66.xyz/posts/double-quote-env-var/</link><pubDate>Sat, 15 May 2021 23:13:00 +0800</pubDate><guid>https://dev66.xyz/posts/double-quote-env-var/</guid><description>&lt;p>启动时，程序读取配置有几种方法：&lt;/p>
-&lt;ol>
-&lt;li>把配置文件作为参数传给程序&lt;/li>
-&lt;li>程序从配置服务器读取配置参数&lt;/li>
-&lt;li>通过环境变量载入参数&lt;/li>
-&lt;/ol>
-&lt;p>第三种方法，由于简单方便，兼容性高，无需依赖其他基础设施，常作为中小型程序首选方法。本文分享几个使用环境变量的经验。&lt;/p></description></item><item><title>Python包引用规则</title><link>https://dev66.xyz/posts/python-package-import/</link><pubDate>Sun, 24 Apr 2016 09:38:44 +0800</pubDate><guid>https://dev66.xyz/posts/python-package-import/</guid><description>&lt;p>python有&lt;a href="https://docs.python.org/2/tutorial/modules.html#packages">package&lt;/a>和&lt;a href="https://docs.python.org/2/tutorial/modules.html">module&lt;/a>两种概念。package是一个文件夹（包含&lt;code>__init__.py&lt;/code>文件的文件夹），module是一个文件。module中引用其他package和module时，通过语法&lt;code>import A&lt;/code>或者&lt;code>from A import B&lt;/code>完成。import的引用又可以分为绝对引用和相对引用两种：&lt;/p></description></item><item><title>在循环中使用lambda</title><link>https://dev66.xyz/posts/lambda-in-loop/</link><pubDate>Sat, 02 Jan 2016 20:45:29 +0800</pubDate><guid>https://dev66.xyz/posts/lambda-in-loop/</guid><description>&lt;p>谈到函数式编程，必然会提到lambda。lambda使得高阶函数运算用起来得心应手。而谈到lambda就要提到闭包。闭包将lambda和它运行时依赖“环境”连接在一起。用一个简单python代码来描述lambda和闭包：&lt;/p></description></item><item><title>在Scrapy中使用cookie</title><link>https://dev66.xyz/posts/scrapy-cookie/</link><pubDate>Fri, 11 Dec 2015 15:27:56 +0800</pubDate><guid>https://dev66.xyz/posts/scrapy-cookie/</guid><description>&lt;p>Python有一个很出色的爬虫包&lt;a href="http://scrapy.org/">scrapy&lt;/a>，架构清晰，设计精巧，能想到的爬虫工具需要的定制化点都有对应的扩展机制。 大部分网站都使用cookie来记录访问用户的识别信息。每个请求都会把用户识别信息带回到服务器，帮助后台程序识别独立用户，这样可以进行鉴权，反爬，限流等很多的操作。所以对于爬虫来说，如何模拟和使用cookie“欺骗”服务器，是十分重要的一步。本文就介绍如何在scrapy中使用cookie技术。&lt;/p></description></item><item><title>Streaming Pipeline in Python - 2</title><link>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</link><pubDate>Fri, 20 Nov 2015 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</guid><description>&lt;p>除了&lt;a href="https://dev66.xyz/posts/streaming-pipeline-in-python-1/">上一篇文章&lt;/a>中提到的几个问题，在使用Generator Expression的过程中，还遇到了一个bug。&lt;/p></description></item><item><title>Streaming Pipeline in Python - 1</title><link>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</link><pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</guid><description>&lt;p>最近用python 2.7做数据处理。数据说大不大，说小不小，千万级别。显然用Hadoop是大材小用。可由于每笔数据都是一个很大的json对象，处理起来很耗内存。单机加到8GB，依旧会出现OOM。不过还好此类问题有成熟的解决方案“流水线式的数据处理”：每次从文件读一笔记录数据，处理一笔数据，把处理结果持久化，相应的对象实例（内存）被回收。方案成熟易实现。先把代码列在下面，然后再解释其中遇到的坑。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Dev66</title>
+    <link>https://dev66.xyz/tags/python/</link>
+    <description>Recent content in Python on Dev66</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Thu, 07 Oct 2021 22:03:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python测试开发1 - fixture</title>
+      <link>https://dev66.xyz/posts/python-test-1-fixture/</link>
+      <pubDate>Thu, 07 Oct 2021 22:03:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/python-test-1-fixture/</guid>
+      <description>&lt;p&gt;资深开发者实际时间分配有可能是4分调研+设计，3分编码，3分测试。且越是老鸟，测试比重越高。测试下功夫了，质量就到位了，返工次数少，调试难度低，工效KPI也就高了。本文分享&lt;code&gt;Python&lt;/code&gt;测试开发中的一些心得。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过环境变量加载配置</title>
+      <link>https://dev66.xyz/posts/double-quote-env-var/</link>
+      <pubDate>Sat, 15 May 2021 23:13:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/double-quote-env-var/</guid>
+      <description>&lt;p&gt;启动时，程序读取配置有几种方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;把配置文件作为参数传给程序&lt;/li&gt;
+&lt;li&gt;程序从配置服务器读取配置参数&lt;/li&gt;
+&lt;li&gt;通过环境变量载入参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第三种方法，由于简单方便，兼容性高，无需依赖其他基础设施，常作为中小型程序首选方法。本文分享几个使用环境变量的经验。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python包引用规则</title>
+      <link>https://dev66.xyz/posts/python-package-import/</link>
+      <pubDate>Sun, 24 Apr 2016 09:38:44 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/python-package-import/</guid>
+      <description>&lt;p&gt;python有&lt;a href=&#34;https://docs.python.org/2/tutorial/modules.html#packages&#34;&gt;package&lt;/a&gt;和&lt;a href=&#34;https://docs.python.org/2/tutorial/modules.html&#34;&gt;module&lt;/a&gt;两种概念。package是一个文件夹（包含&lt;code&gt;__init__.py&lt;/code&gt;文件的文件夹），module是一个文件。module中引用其他package和module时，通过语法&lt;code&gt;import A&lt;/code&gt;或者&lt;code&gt;from A import B&lt;/code&gt;完成。import的引用又可以分为绝对引用和相对引用两种：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在循环中使用lambda</title>
+      <link>https://dev66.xyz/posts/lambda-in-loop/</link>
+      <pubDate>Sat, 02 Jan 2016 20:45:29 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/lambda-in-loop/</guid>
+      <description>&lt;p&gt;谈到函数式编程，必然会提到lambda。lambda使得高阶函数运算用起来得心应手。而谈到lambda就要提到闭包。闭包将lambda和它运行时依赖“环境”连接在一起。用一个简单python代码来描述lambda和闭包：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Scrapy中使用cookie</title>
+      <link>https://dev66.xyz/posts/scrapy-cookie/</link>
+      <pubDate>Fri, 11 Dec 2015 15:27:56 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/scrapy-cookie/</guid>
+      <description>&lt;p&gt;Python有一个很出色的爬虫包&lt;a href=&#34;http://scrapy.org/&#34;&gt;scrapy&lt;/a&gt;，架构清晰，设计精巧，能想到的爬虫工具需要的定制化点都有对应的扩展机制。 大部分网站都使用cookie来记录访问用户的识别信息。每个请求都会把用户识别信息带回到服务器，帮助后台程序识别独立用户，这样可以进行鉴权，反爬，限流等很多的操作。所以对于爬虫来说，如何模拟和使用cookie“欺骗”服务器，是十分重要的一步。本文就介绍如何在scrapy中使用cookie技术。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Streaming Pipeline in Python - 2</title>
+      <link>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</link>
+      <pubDate>Fri, 20 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/streaming-pipeline-in-python-2/</guid>
+      <description>&lt;p&gt;除了&lt;a href=&#34;https://dev66.xyz/posts/streaming-pipeline-in-python-1/&#34;&gt;上一篇文章&lt;/a&gt;中提到的几个问题，在使用Generator Expression的过程中，还遇到了一个bug。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Streaming Pipeline in Python - 1</title>
+      <link>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/streaming-pipeline-in-python-1/</guid>
+      <description>&lt;p&gt;最近用python 2.7做数据处理。数据说大不大，说小不小，千万级别。显然用Hadoop是大材小用。可由于每笔数据都是一个很大的json对象，处理起来很耗内存。单机加到8GB，依旧会出现OOM。不过还好此类问题有成熟的解决方案“流水线式的数据处理”：每次从文件读一笔记录数据，处理一笔数据，把处理结果持久化，相应的对象实例（内存）被回收。方案成熟易实现。先把代码列在下面，然后再解释其中遇到的坑。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

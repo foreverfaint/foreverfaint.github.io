@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Video on Dev66</title><link>https://dev66.xyz/tags/video/</link><description>Recent content in Video on Dev66</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; Copyright notice</copyright><lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/video/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg Idioms 2</title><link>https://dev66.xyz/posts/ffmpeg-idioms-2/</link><pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/ffmpeg-idioms-2/</guid><description>&lt;p>上一篇文章中，我们已经熟悉了FFmpeg相关的基本概念。这篇中，我们就介绍一些常见的FFmpeg用法，比如：格式转码，抽取关键帧，分段录制rtsp流等。&lt;/p></description></item><item><title>FFmpeg Idioms I</title><link>https://dev66.xyz/posts/ffmpeg-idioms-1/</link><pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/ffmpeg-idioms-1/</guid><description>&lt;p>FFmpeg （Fast Forward Mpeg）是一个历史悠久，功能强大的跨平台多媒体处理工具。我会在这篇文章中介绍一些常见FFmpeg惯用法。也会结合FFmpeg的源代码对一些惯用法原理进行简单讲解。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video on Dev66</title>
+    <link>https://dev66.xyz/tags/video/</link>
+    <description>Recent content in Video on Dev66</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; Copyright notice</copyright>
+    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FFmpeg Idioms 2</title>
+      <link>https://dev66.xyz/posts/ffmpeg-idioms-2/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/ffmpeg-idioms-2/</guid>
+      <description>&lt;p&gt;上一篇文章中，我们已经熟悉了FFmpeg相关的基本概念。这篇中，我们就介绍一些常见的FFmpeg用法，比如：格式转码，抽取关键帧，分段录制rtsp流等。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FFmpeg Idioms I</title>
+      <link>https://dev66.xyz/posts/ffmpeg-idioms-1/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://dev66.xyz/posts/ffmpeg-idioms-1/</guid>
+      <description>&lt;p&gt;FFmpeg （Fast Forward Mpeg）是一个历史悠久，功能强大的跨平台多媒体处理工具。我会在这篇文章中介绍一些常见FFmpeg惯用法。也会结合FFmpeg的源代码对一些惯用法原理进行简单讲解。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
