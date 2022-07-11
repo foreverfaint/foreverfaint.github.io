@@ -8,7 +8,7 @@ highlight:
   lineNos: true
   lineNumbersInTable: true
   noClasses: true
-  style: monokai
+  style: solarized-light
   tabWidth: 4
 
 tableOfContents:

@@ -24,7 +24,7 @@ Find a theme at https://themes.gohugo.io/, e.g. https://github.com/mismith0227/h
 ```bash-session
 $ cd ./themes
 
-$ git submodule add https://github.com/mismith0227/hugo_theme_pickles
+$ git submodule add git@github.com-ff:mismith0227/hugo_theme_pickles.git
 Cloning into '/workdir/codes/github_ff/myhugo/themes/hugo_theme_pickles'...
 remote: Enumerating objects: 1908, done.
 remote: Counting objects: 100% (313/313), done.
@@ -44,6 +44,22 @@ $ echo theme = \"hugo_theme_pickles\" >> config.toml
 $ git submodule init
 
 $ git submodule update
+```
+
+```bash-session
+[submodule "themes/hugo-kiera"]
+	path = themes/hugo-kiera
+	url = git@github.com-ff:funkydan2/hugo-kiera.git
+[submodule "themes/hugo-theme-pixyll"]
+	path = themes/hugo-theme-pixyll
+	url = git@github.com-ff:azmelanar/hugo-theme-pixyll.git
+[submodule "themes/hugo_theme_pickles"]
+	path = themes/hugo_theme_pickles
+	url = git@github.com-ff:mismith0227/hugo_theme_pickles.git
+[submodule "themes/hugo-theme-swift"]
+	path = themes/hugo-theme-swift
+	url = git@github.com-ff:foreverfaint/hugo-theme-swift.git
+	branch = main
 ```
 
 ### Update themes
@@ -73,6 +89,12 @@ $ git config --remove-section submodule.themes/hugo-rocinante
 |hugo-theme-pixyll|https://themes.gohugo.io/themes/hugo-theme-pixyll/|https://github.com/azmelanar/hugo-theme-pixyll|
 
 ## Content
+
+## Highlight
+
+If you run with markup.highlight.noClasses=false in your site config, you need a style sheet. More detail, please read [Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/)
+
+> hugo gen chromastyles --style=monokai > syntax.css
 
 ### Create New Post
 
