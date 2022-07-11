@@ -1,72 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on Dev66</title>
-    <link>https://dev66.xyz/tags/linux/</link>
-    <description>Recent content in Linux on Dev66</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; Copyright notice</copyright>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>解决Ubuntu无法打开&#34;Software &amp; Updates&#34;的问题</title>
-      <link>https://dev66.xyz/posts/fix-software-properties-gtk/</link>
-      <pubDate>Sun, 20 Mar 2022 00:00:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/fix-software-properties-gtk/</guid>
-      <description>&lt;p&gt;最近发现我的Ubuntu服务器的&amp;quot;Software &amp;amp; Updates&amp;quot;无法打开。网上有各种解决方案，“不幸”的是没一个能起作用，“幸运”的是答案大方向是对的。最终结合一些诊断手段解决了该问题。像这种网上给个大概方向，然后结合自身状况，进一步诊断和解决问题的模式，应该是日常工作中的常态。本文分享一下这个过程。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>通过环境变量加载配置</title>
-      <link>https://dev66.xyz/posts/double-quote-env-var/</link>
-      <pubDate>Sat, 15 May 2021 23:13:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/double-quote-env-var/</guid>
-      <description>&lt;p&gt;启动时，程序读取配置有几种方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;把配置文件作为参数传给程序&lt;/li&gt;
-&lt;li&gt;程序从配置服务器读取配置参数&lt;/li&gt;
-&lt;li&gt;通过环境变量载入参数&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;第三种方法，由于简单方便，兼容性高，无需依赖其他基础设施，常作为中小型程序首选方法。本文分享几个使用环境变量的经验。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>FFmpeg Idioms 2</title>
-      <link>https://dev66.xyz/posts/ffmpeg-idioms-2/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/ffmpeg-idioms-2/</guid>
-      <description>&lt;p&gt;上一篇文章中，我们已经熟悉了FFmpeg相关的基本概念。这篇中，我们就介绍一些常见的FFmpeg用法，比如：格式转码，抽取关键帧，分段录制rtsp流等。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>FFmpeg Idioms I</title>
-      <link>https://dev66.xyz/posts/ffmpeg-idioms-1/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/ffmpeg-idioms-1/</guid>
-      <description>&lt;p&gt;FFmpeg （Fast Forward Mpeg）是一个历史悠久，功能强大的跨平台多媒体处理工具。我会在这篇文章中介绍一些常见FFmpeg惯用法。也会结合FFmpeg的源代码对一些惯用法原理进行简单讲解。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>nohup</title>
-      <link>https://dev66.xyz/posts/nohup/</link>
-      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/nohup/</guid>
-      <description>&lt;p&gt;nohup是一个POSIX命令。人如其名“NO”+“HUP（hangup）”，“HUP”是挂起信号，“NOHUP”就是忽略挂起信号。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>jq</title>
-      <link>https://dev66.xyz/posts/jq/</link>
-      <pubDate>Thu, 10 Oct 2019 00:00:00 +0800</pubDate>
-      
-      <guid>https://dev66.xyz/posts/jq/</guid>
-      <description>&lt;p&gt;JSON格式的字符串是Web API最常见的返回格式。在使用API时，我们经常使用&lt;code&gt;curl&lt;/code&gt;或者&lt;code&gt;wget&lt;/code&gt;快速方便的调试API。如果API返回的是JSON，输出到控制台里会像下面这样。没有格式，很难阅读：&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Dev66</title><link>https://dev66.xyz/tags/linux/</link><description>Recent content in Linux on Dev66</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; Copyright notice</copyright><lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://dev66.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>解决Ubuntu无法打开"Software &amp; Updates"的问题</title><link>https://dev66.xyz/posts/fix-software-properties-gtk/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/fix-software-properties-gtk/</guid><description>&lt;p>最近发现我的Ubuntu服务器的&amp;quot;Software &amp;amp; Updates&amp;quot;无法打开。网上有各种解决方案，“不幸”的是没一个能起作用，“幸运”的是答案大方向是对的。最终结合一些诊断手段解决了该问题。像这种网上给个大概方向，然后结合自身状况，进一步诊断和解决问题的模式，应该是日常工作中的常态。本文分享一下这个过程。&lt;/p></description></item><item><title>通过环境变量加载配置</title><link>https://dev66.xyz/posts/double-quote-env-var/</link><pubDate>Sat, 15 May 2021 23:13:00 +0800</pubDate><guid>https://dev66.xyz/posts/double-quote-env-var/</guid><description>&lt;p>启动时，程序读取配置有几种方法：&lt;/p>
+&lt;ol>
+&lt;li>把配置文件作为参数传给程序&lt;/li>
+&lt;li>程序从配置服务器读取配置参数&lt;/li>
+&lt;li>通过环境变量载入参数&lt;/li>
+&lt;/ol>
+&lt;p>第三种方法，由于简单方便，兼容性高，无需依赖其他基础设施，常作为中小型程序首选方法。本文分享几个使用环境变量的经验。&lt;/p></description></item><item><title>FFmpeg Idioms 2</title><link>https://dev66.xyz/posts/ffmpeg-idioms-2/</link><pubDate>Tue, 05 May 2020 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/ffmpeg-idioms-2/</guid><description>&lt;p>上一篇文章中，我们已经熟悉了FFmpeg相关的基本概念。这篇中，我们就介绍一些常见的FFmpeg用法，比如：格式转码，抽取关键帧，分段录制rtsp流等。&lt;/p></description></item><item><title>FFmpeg Idioms I</title><link>https://dev66.xyz/posts/ffmpeg-idioms-1/</link><pubDate>Mon, 04 May 2020 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/ffmpeg-idioms-1/</guid><description>&lt;p>FFmpeg （Fast Forward Mpeg）是一个历史悠久，功能强大的跨平台多媒体处理工具。我会在这篇文章中介绍一些常见FFmpeg惯用法。也会结合FFmpeg的源代码对一些惯用法原理进行简单讲解。&lt;/p></description></item><item><title>nohup</title><link>https://dev66.xyz/posts/nohup/</link><pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/nohup/</guid><description>&lt;p>nohup是一个POSIX命令。人如其名“NO”+“HUP（hangup）”，“HUP”是挂起信号，“NOHUP”就是忽略挂起信号。&lt;/p></description></item><item><title>jq</title><link>https://dev66.xyz/posts/jq/</link><pubDate>Thu, 10 Oct 2019 00:00:00 +0800</pubDate><guid>https://dev66.xyz/posts/jq/</guid><description>&lt;p>JSON格式的字符串是Web API最常见的返回格式。在使用API时，我们经常使用&lt;code>curl&lt;/code>或者&lt;code>wget&lt;/code>快速方便的调试API。如果API返回的是JSON，输出到控制台里会像下面这样。没有格式，很难阅读：&lt;/p></description></item></channel></rss>
