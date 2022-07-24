@@ -1,6 +1,6 @@
 ---
 title: "Python Typing"
-date: 2022-07-23T17:05:00+08:00
+date: 2022-07-24T17:40:00+08:00
 category: 
     - Programming
 tags: 
@@ -166,25 +166,58 @@ func(1, "a", "b", c=1.1, d=1.2)
 
 但是如果`*args`和`**kwargs`由多种不同的类型组成，则应该使用`Any`或者`object`来做`typing`定义。
 
+### 生成器
+
+生成器[`Generator`](https://docs.python.org/3/library/typing.html?highlight=generator#typing.Generator)是一种特殊的函数，最早类似于`Iterable`返回一个`Iterator`；后来增加了`send`，`throw`和`close`方法变为双向数据传递，从而可以创建协程，称为`Generator-based Coroutine`（区别于之后`async`定义的`Native Coroutine`）。`Generator`的`typing`如下：
+
+```python
+from typing import Generator
+
+
+def gen() -> Generator[int, str, bool]:
+    s = yield 1  # yield type: int
+    print(s)
+    return True  # return Type
+
+
+g = gen()
+print(g.send(None))  # yield return is 1
+try:
+    g.send("sss")  # sss
+except StopIteration as e:
+    ret, = e.args
+    print(ret)  # Generator的返回值通过StopIteration的args第一个元素返回给我们
+```
+
 ### 协程
 
-协程由`async`修饰，可以`await`的函数：
+尽管`Python`的`Coroutine`是从`Generator`演化来的，但是我们不能直接用`Coroutine`来替换`Generator`的`typing`。如果我们查看`Coroutine`和`Generator`两个`typing`类的定义，可以看出一些区别：
 
-```Python
-async def func(a: int) -> str:
-    return "hello"
+```python
+# https://docs.python.org/3/library/typing.html#typing.Generator
+class typing.Generator(Iterator[T_co], Generic[T_co, T_contra, V_co]): ...
+
+# https://docs.python.org/3/library/typing.html#typing.Coroutine
+class typing.Coroutine(Awaitable[V_co], Generic[T_co, T_contra, V_co]): ...
 ```
 
-`typing`是在`Callable`的返回值上增加`Awaitable`修饰：
+二者都继承于`Generic`，区别是：`Generator`实现`Iterator`约束（`yield`或者`yield from`要出现在函数体内）；而`Coroutine`是一个可以被`await`的函数。`Coroutine`的`typing`如下：
 
-```Python
-from typing import Callable, Awaitable
+```python
+from typing import Callable, Coroutine, Any， Awaitable
 
 
-c_func: Callable[[int], Awaitable[str]] = func
+async def func(a: str) -> str:
+    return f"hello {a}"
 
-ret = await c_func(1)
+
+f_1: Callable[[str], Coroutine[Any, Any, str]] = func  # func前面加了async之后，func的返回值变为Coroutine[Any, Any, str]
+f_2: Coroutine[Any, Any, str] = func("coroutine")  # 返回一个可以await的Coroutine
+
+f_3: Callable[[str], Awaitable[str]] = func   # 这个也成为Async Callable，可以传入另一个协程中调用（使用await调用）
+f_4: Awaitable[str] = func("awaitable")  # 事实上，我们可以直接将返回值赋给Awaitable
 ```
+
 
 ### 函数重载
 
