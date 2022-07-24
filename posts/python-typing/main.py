@@ -134,7 +134,8 @@ def handle_childClass(obj: ChildClass):
     pass
 
 
-from typing import Callable, Iterator, Tuple, List, Iterable, Sequence, MutableSequence, TypeVar, Generic
+import asyncio
+from typing import Awaitable, Callable, Coroutine, Iterator, Tuple, List, Iterable, Sequence, MutableSequence, TypeVar, Generic
 # parentClassObj: ParentClass = ChildClass()
 # childClassObj: ChildClass = ParentClass()
 # f_handle_parentClass: Callable[[ParentClass], None] = handle_childClass
@@ -186,37 +187,81 @@ from typing import Callable, Iterator, Tuple, List, Iterable, Sequence, MutableS
 # # mypy error: Incompatible types in assignment (expression has type "MutableSequence[ChildClass]", variable has type "MutableSequence[ParentClass]")
 # mut_seq_parentClass = mut_seq_childClass
 
-T = TypeVar("T")  # 默认是invariant
-T_co = TypeVar("T_co", covariant=True)
-T_contra = TypeVar("T_contra", contravariant=True)
+# T = TypeVar("T")  # 默认是invariant
+# T_co = TypeVar("T_co", covariant=True)
+# T_contra = TypeVar("T_contra", contravariant=True)
 
 
 
-class CoContainer(Generic[T_co]):
-    def __init__(self):
-        ...
+# class CoContainer(Generic[T_co]):
+#     def __init__(self):
+#         ...
 
-    def __iter__(self) -> Iterator[T_co]:
-        ...
-
-
-class ContraContainer(Generic[T_contra]):
-    def __init__(self):
-        ...
-
-    def __iter__(self) -> Iterator[T_contra]:
-        ...
+#     def __iter__(self) -> Iterator[T_co]:
+#         ...
 
 
-def func_1(container: CoContainer[ParentClass]):
-    for item in container:
-        print(item)
+# class ContraContainer(Generic[T_contra]):
+#     def __init__(self):
+#         ...
+
+#     def __iter__(self) -> Iterator[T_contra]:
+#         ...
 
 
-def func_2(container: ContraContainer[ParentClass]):
-    for item in container:
-        print(item)
+# def func_1(container: CoContainer[ParentClass]):
+#     for item in container:
+#         print(item)
 
 
-func_1(CoContainer[ChildClass]())
-func_2(ContraContainer[ChildClass]())
+# def func_2(container: ContraContainer[ParentClass]):
+#     for item in container:
+#         print(item)
+
+
+# func_1(CoContainer[ChildClass]())
+# func_2(ContraContainer[ChildClass]())
+
+
+from typing import Generator, Any
+import asyncio
+from typing_extensions import reveal_type
+
+
+# def gen() -> Generator[int, str, bool]:
+#     def subgen():
+#         yield 1
+#         yield 2
+
+#     s = yield from subgen()  # yield type: int
+#     print(s)
+#     return True  # return Type
+
+# g = gen()
+# print(g.send(None))  # 1
+# try:
+#     g.send("sss")
+# except StopIteration as e:
+#     ret, = e.args
+#     print(ret)
+
+# @asyncio.coroutine
+# def coro_gen() -> Coroutine[]:
+#     yield from asyncio.sleep(1)
+
+
+# asyncio.run(coro_gen())
+
+
+from typing import Coroutine
+
+
+async def func(a: str) -> str:
+    return f"hello {a}"
+
+
+f_1: Callable[[str], Coroutine[Any, Any, str]] = func  # func前面加了async之后，func的返回值变为Coroutine[Any, Any, str]
+f_2: Coroutine[Any, Any, str] = func("coroutine")  # 返回一个可以await的Coroutine
+
+f_3: Callable[[str], Awaitable[str]] = func
+f_4: Awaitable[str] = func("awaitable")  # 事实上，我们可以直接将返回值赋给Awaitable
